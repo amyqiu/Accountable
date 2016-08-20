@@ -1,5 +1,8 @@
 package com.daph.accountable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Amy on 2016-08-20.
  */
@@ -11,6 +14,9 @@ public class User {
     private int weight;
     private int height;
     private int points;
+    private int experience;
+    private int level;
+    private List<Goal> goals;
 
     public User()
     {
@@ -25,6 +31,9 @@ public class User {
         weight = newWeight;
         height = newHeight;
         points = 0;
+        experience = 0;
+        level = 1;
+        goals = new ArrayList<Goal>();
     }
 
     public void setName(String newName)
@@ -62,14 +71,29 @@ public class User {
         points = newPoints;
     }
 
+    public void setExperience(int newExperience)
+    {
+        experience = newExperience;
+    }
+
+    public void setLevel(int newLevel)
+    {
+        level = newLevel;
+    }
+
     public void addPoints(int morePoints)
     {
         points = points + morePoints;
     }
 
-    public void subtractPoints(int lessPoints)
+    public void addGoal (Goal newGoal)
     {
-        points = points - lessPoints;
+        goals.add(newGoal);
+    }
+
+    public void addExperience (int moreExperience)
+    {
+        experience = experience + moreExperience;
     }
 
     public String getName()
@@ -100,5 +124,30 @@ public class User {
     public int getPoints()
     {
         return points;
+    }
+
+    public List<Goal> getGoals()
+    {
+        return goals;
+    }
+
+    public int getExperience()
+    {
+        return experience;
+    }
+
+    public int getLevel()
+    {
+        return level;
+    }
+
+    //Checks current experience and level up accordingly
+    public int refreshLevel()
+    {
+        if (experience < 1000)
+        {
+            level = 1;
+        }
+        return level;
     }
 }
