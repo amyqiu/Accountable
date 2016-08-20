@@ -14,4 +14,14 @@ public class SubGoal extends Goal {
         super();
         tasks = new ArrayList<Accomplishment>();
     }
+
+    public void addTask(Accomplishment newTask)
+    {
+        tasks.add(newTask);
+    }
+
+    public List<Accomplishment> getTasks()
+    {
+        return tasks;
+    }
 }

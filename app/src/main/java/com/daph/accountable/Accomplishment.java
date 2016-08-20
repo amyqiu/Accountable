@@ -51,13 +51,5 @@ public class Accomplishment {
         return value;
     }
 
-    public Accomplishment convertTaskToAccomplishment(Goal goal)
-    {
-
-        return new Accomplishment(
-                goal.getName(), goal.getDescription(), goal.getValue()
-            );
-
-    }
 
 }
