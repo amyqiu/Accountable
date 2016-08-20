@@ -7,6 +7,7 @@ public class Workout extends Accomplishment{
     // Include intensity enums
     private int intensity; // Low = 1x multiplier, medium = 1.5x, high = 2x multiplier
     // Actually on second thought, maybe define intensity
+    // Could also use fitbit info for heart rate
     private int time;
 
     // Take information from a form for this
