@@ -13,10 +13,14 @@ public class User {
     private int age;
     private int weight;
     private int height;
+
     private int points;
     private int experience;
     private int level;
+
     private List<Goal> goals;
+    private List<Workout> workouts;
+    private List<Nutrition> nutritions;
 
     public User()
     {
@@ -30,10 +34,15 @@ public class User {
         age = newAge;
         weight = newWeight;
         height = newHeight;
+
         points = 0;
         experience = 0;
         level = 1;
-        goals = new ArrayList<Goal>();
+
+        goals = new ArrayList<>();
+        workouts = new ArrayList<>();
+        nutritions = new ArrayList<>();
+
     }
 
     public void setName(String newName)
@@ -86,9 +95,9 @@ public class User {
         points = points + morePoints;
     }
 
-    public void addGoal (Goal newGoal)
+    public void subtractPoints(int lessPoints)
     {
-        goals.add(newGoal);
+        points = points - lessPoints;
     }
 
     public void addExperience (int moreExperience)
@@ -131,6 +140,16 @@ public class User {
         return goals;
     }
 
+    public List<Workout> getWorkouts()
+    {
+        return workouts;
+    }
+
+    public List<Nutrition> getNutritions()
+    {
+        return nutritions;
+    }
+
     public int getExperience()
     {
         return experience;
@@ -150,4 +169,5 @@ public class User {
         }
         return level;
     }
+
 }
