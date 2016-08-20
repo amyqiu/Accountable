@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Accountable</string>
+    <string name="log">Log Accomplishments</string>
+    <string name="name">Welcome</string>
 </resources>
