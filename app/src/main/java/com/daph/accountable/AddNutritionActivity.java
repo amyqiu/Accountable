@@ -31,7 +31,10 @@ public class AddNutritionActivity extends AppCompatActivity {
 
         Constants.globalUser.addNutrition(newNutrition);
         User.addNutrition(Constants.globalUser.getName(), newNutrition);
-        Constants.globalUser.addPoints(newNutrition.getValue());
+
+        int addedPoints = newNutrition.getValue();
+        Constants.globalUser.addPoints(addedPoints);
+        User.addPoints(Constants.globalUser.getName(), addedPoints);
 
         Intent intent = new Intent(AddNutritionActivity.this, Splash.class);
         // Change the above to (AddNutritionActivity.this, splash.class);
