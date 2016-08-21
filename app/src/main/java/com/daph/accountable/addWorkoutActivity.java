@@ -88,7 +88,7 @@ public class AddWorkoutActivity extends AppCompatActivity {
         Intent intent = new Intent(AddWorkoutActivity.this, Splash.class);
         // Change the above to (AddWorkoutActivity.this, splash.class);
         // the "splash" page says "Your Plant Gru!" with a back to menu button and maybe some
-        // display shit (like how many gains you got, and your XP until next level)
+        // display shit (like how many gains you got, and your XP until next level, and so on)
         startActivity(intent);
 
     }
