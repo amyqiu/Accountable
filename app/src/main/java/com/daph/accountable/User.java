@@ -105,6 +105,11 @@ public class User {
         experience = experience + moreExperience;
     }
 
+    public void addWorkout (Workout newWorkout)
+    {
+        workouts.add(newWorkout);
+    }
+
     public String getName()
     {
         return name;

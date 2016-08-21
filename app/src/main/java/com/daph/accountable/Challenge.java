@@ -59,7 +59,10 @@ public class Challenge {
 
     public void markCompleted()
     {
-
+        if (accomplishment.getCategory() == Accomplishment.Category.MEDITATION)
+        {
+            //recipient.addWorkout(accomplishment);
+        }
     }
 
 }
