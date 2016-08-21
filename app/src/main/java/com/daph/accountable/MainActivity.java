@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void seeChallengesInvestments(View view)
     {
-        Intent intent = new Intent(MainActivity.this, ChallengesInvestments.class);
+        Intent intent = new Intent(MainActivity.this, ChallengesActivity.class);
         startActivity(intent);
     }
 
