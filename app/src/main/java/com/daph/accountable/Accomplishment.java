@@ -61,4 +61,6 @@ public class Accomplishment {
     {
         return category;
     }
+
+    // NOTE When someone adds any accomplishment, just use (USER).addPoints(getValue);
 }
