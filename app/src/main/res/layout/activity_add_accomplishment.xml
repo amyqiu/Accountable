@@ -17,7 +17,7 @@
         android:id="@+id/title"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="42sp" />
+        android:textSize="@dimen/titleTextSize" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -78,5 +78,6 @@
         android:text="@string/next"
         android:id="@+id/Next"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/spinner" />
+        android:layout_alignEnd="@+id/spinner"
+        android:onClick="accomplishmentNext" />
 </RelativeLayout>
