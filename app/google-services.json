@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "664412476790",
+    "firebase_url": "https://grow-11b71.firebaseio.com",
+    "project_id": "grow-11b71",
+    "storage_bucket": "grow-11b71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664412476790:android:c8e80db1d76dc7e5",
+        "android_client_info": {
+          "package_name": "com.daph.accountable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664412476790-q7h0pan0v96ostugsf8447dk7rrtqu2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGBMx6ss2h99X53wlQORFnwa4qaI9xO1k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
