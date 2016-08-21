@@ -1,14 +1,16 @@
 <resources>
     <string name="app_name">Gro</string>
     <string name="Intro">Welcome!</string>
-    <string name="log">Log Accomplishments</string>
-    <string name="challenge">See Challenges</string>
+    <string name="log">Gro Your Plant</string>
+    <string name="challenge">Investments / Challenges / </string>
     <string name="name">Welcome</string>
+    <string name="workout_more">Add New Workout</string>
     <string name="edit">Edit Profile</string>
     <string name="accomplishment">Gro Your Plant</string>
     <string name="category">Pick your category:</string>
-    <string name="accomplishmentName">Pick your name:</string>
+    <string name="accomplishmentName">Add a name:</string>
     <string name="description">Add a short description (optional):</string>
     <string name="next">Next</string>
-    <string name="intensity">Choose your workout intensity:</string>
+    <string name="intensity">Choose workout intensity:  </string>
+    <string name="workouttime">Enter workout time (minutes):</string>
 </resources>

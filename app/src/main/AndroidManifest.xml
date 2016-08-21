@@ -18,7 +18,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddAccomplishmentActivity" />
-        <activity android:name=".addWorkoutActivity"></activity>
+        <activity android:name=".AddWorkoutActivity" />
+        <activity android:name=".AddNutritionActivity" />
+        <activity android:name=".AddMeditationActivity" />
+        <activity android:name=".Splash" />
+        <activity android:name=".ChallengesInvestments"></activity>
     </application>
 
 </manifest>

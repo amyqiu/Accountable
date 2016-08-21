@@ -3,19 +3,32 @@ package com.daph.accountable;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.daph.accountable.model.Accomplishment;
+import com.daph.accountable.model.Constants;
+import com.daph.accountable.model.Meditation;
+import com.daph.accountable.model.Nutrition;
+import com.daph.accountable.model.Workout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddAccomplishmentActivity extends AppCompatActivity {
     Spinner choose;
+    String activity;
+    //Accomplishment accomplishment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_accomplishment);
+
+        initializeSpinner();
     }
 
     protected void initializeSpinner() {
@@ -30,40 +43,69 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         choose.setAdapter(adapter);
 
-        // on next click
+        choose.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                if (pos == 0)
+                {
+                    activity = "Workout";
+                    Constants.globalAccomplishment = new Workout();
+                }
+                else if (pos == 1)
+                {
+                    activity = "Nutrition";
+                    Constants.globalAccomplishment = new Nutrition();
+                }
+                else
+                {
+                    activity = "Meditation";
+                    Constants.globalAccomplishment = new Meditation();
+                }
 
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
-    public void accomplishmentNext() {
+    public void getData(){
 
-        // I need the spinner info
-        // I n
+        TextView name = (TextView) findViewById(R.id.editText);
+        Constants.globalAccomplishment.setName(name.getText().toString());
+
+        TextView description = (TextView) findViewById(R.id.editText2);
+        Constants.globalAccomplishment.setDescription(description.getText().toString());
+
+    }
+
+    public void accomplishmentNext(View view) {
+
+        getData();
 
         Intent intent;
-
-        String spinnerText = choose.getSelectedItem().toString();
-
-        if (spinnerText.equals("Workout")) {
-            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+        if (activity.equals("Workout"))
+        {
+            intent = new Intent(AddAccomplishmentActivity.this, AddWorkoutActivity.class);
         }
-        else if (spinnerText.equals("Nutrition")) {
-            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
-            // Placeholder above
-           // intent = new Intent(AddAccomplishmentActivity.this, addNutritionActivity.class);
-            // Once we actually make addNutritionActivity.class
+        else if (activity.equals("Nutrition"))
+        {
+            //Change to nutrition
+            intent = new Intent(AddAccomplishmentActivity.this, AddNutritionActivity.class);
         }
-        else {
-            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
-            // intent = new Intent(AddAccomplishmentActivity.this, addMeditationActivity.class);
-            // As above, note that this is an else if in case we add other activities
-            // Note that the comment is the real thing, the current line is a placeholder
+        else
+        {
+            //Change to meditation
+            intent = new Intent(AddAccomplishmentActivity.this, AddMeditationActivity.class);
         }
-
-
 
 
         startActivity(intent);
+
+
     }
 
 }

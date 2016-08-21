@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/plant_icon" />
+        android:src="@drawable/plant_icon"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:text="@string/log"
         android:id="@+id/Log"
-        android:textSize="15sp"
+        android:textSize="20sp"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30sp"
@@ -118,10 +118,11 @@
         android:layout_height="wrap_content"
         android:text="@string/challenge"
         android:id="@+id/challenge"
-        android:textSize="15sp"
+        android:textSize="20sp"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_marginTop="42dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="seeChallengesInvestments"/>
 
     <!--Edit Profile-->
     <Button
@@ -129,9 +130,9 @@
         android:layout_height="wrap_content"
         android:text="@string/edit"
         android:id="@+id/edit"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="15dp"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:clickable="true"
         android:layout_gravity="center_horizontal"/>
 
