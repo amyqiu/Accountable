@@ -51,7 +51,13 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.i("database", "hey I got something");
                 ArrayList<User> userList = User.stringListToUserList((ArrayList<String>) dataSnapshot.getValue());
-                user = userList.get(User.userPos(name, userList));
+                int pos = User.userPos(name, userList);
+                if (pos > -1) {
+                    user = userList.get(pos);
+                } else {
+                    user = new User(name);
+                    userList.add(user);
+                }
                 initializeLevel();
                 initializePoints();
             }

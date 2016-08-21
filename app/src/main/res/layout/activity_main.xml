@@ -11,7 +11,7 @@
     tools:context="com.daph.accountable.MainActivity"
     android:id="@+id/hh"
 
-    android:background="#99ff66">
+    android:background="@color/greenBackground">
 
     <!-- Welcome Part -->
     <TextView

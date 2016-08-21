@@ -10,6 +10,4 @@ public class AddInvestmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_investment);
     }
-
-    public void
 }

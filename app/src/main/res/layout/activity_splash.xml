@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="horizontal"
     tools:context="com.daph.accountable.Splash"
-    android:background="#99ff66">
+    android:background="@color/greenBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
