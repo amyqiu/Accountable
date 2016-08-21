@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.daph.accountable.model.Constants;
 import com.daph.accountable.model.Nutrition;
+import com.daph.accountable.model.User;
 
 public class AddNutritionActivity extends AppCompatActivity {
 
@@ -29,6 +30,7 @@ public class AddNutritionActivity extends AppCompatActivity {
                 Integer.parseInt(protein.toString())); // Calories = 2500, protein = 140 hardcoded
 
         Constants.globalUser.addNutrition(newNutrition);
+        User.addNutrition(Constants.globalUser.getName(), newNutrition);
         Constants.globalUser.addPoints(newNutrition.getValue());
 
         Intent intent = new Intent(AddNutritionActivity.this, Splash.class);
