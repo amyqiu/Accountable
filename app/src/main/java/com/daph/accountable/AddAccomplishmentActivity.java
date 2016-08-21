@@ -48,12 +48,16 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
             intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
         }
         else if (spinnerText.equals("Nutrition")) {
+            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+            // Placeholder above
            // intent = new Intent(AddAccomplishmentActivity.this, addNutritionActivity.class);
             // Once we actually make addNutritionActivity.class
         }
-        else if (spinnerText.equals("Meditation")) {
+        else {
+            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
             // intent = new Intent(AddAccomplishmentActivity.this, addMeditationActivity.class);
             // As above, note that this is an else if in case we add other activities
+            // Note that the comment is the real thing, the current line is a placeholder
         }
 
 
