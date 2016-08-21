@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Accountable</string>
+    <string name="Intro">Welcome!</string>
     <string name="log">Log Accomplishments</string>
+    <string name="challenge">See Challenges</string>
     <string name="name">Welcome</string>
+    <string name="edit">Edit Profile</string>
 </resources>
