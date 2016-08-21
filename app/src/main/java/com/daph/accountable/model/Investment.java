@@ -26,7 +26,7 @@ public class Investment {
     }
 
     public Investment(String investmentString) {
-        String[] investmentArray = investmentString.split("~");
+        String[] investmentArray = investmentString.split("/");
         amount = Integer.parseInt(investmentArray[0]);
         requester = investmentArray[1];
         recipient = investmentArray[2];
