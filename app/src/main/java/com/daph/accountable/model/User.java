@@ -1,4 +1,4 @@
-package com.daph.accountable;
+package com.daph.accountable.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +9,8 @@ import java.util.List;
 public class User {
 
     private String name;
-    private boolean gender;
-
     private int points;
     private int personalMultiplier;
-
     private int experience;
     private List<Workout> workouts;
     private List<Nutrition> nutritions;
@@ -28,11 +25,10 @@ public class User {
     public User (String userString) {
         String[] user = userString.split("/");
         name = user[0];
-        gender = Boolean.parseBoolean(user[1]);
 
-        points = Integer.parseInt(user[5]);
-        personalMultiplier = Integer.parseInt(user[6]);
-        experience = Integer.parseInt(user[7]);
+        points = Integer.parseInt(user[1]);
+        personalMultiplier = Integer.parseInt(user[2]);
+        experience = Integer.parseInt(user[3]);
 
         workouts = new ArrayList<>();
         nutritions = new ArrayList<>();
@@ -42,7 +38,6 @@ public class User {
     public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
     {
         name = newName;
-        gender = newGender;
         points = 0;
         personalMultiplier = 1;
         experience = 0;
@@ -61,11 +56,6 @@ public class User {
 
     }
 
-    //True = female, False = male
-    public void setGender(Boolean newGender)
-    {
-        gender = newGender;
-    }
 
     public void setPoints(int newPoints)
     {
@@ -96,11 +86,6 @@ public class User {
     public String getName()
     {
         return name;
-    }
-
-    public boolean getGender()
-    {
-        return gender;
     }
 
     public int getPoints()
@@ -160,10 +145,6 @@ public class User {
         meditations.remove(deletedMeditation);
     }
 
-
-
-
-
     //Checks current experience and level up accordingly
     public int getLevel()
     {
@@ -214,7 +195,6 @@ public class User {
     public String toString()
     {
         return name + "/" +
-            Boolean.toString(gender) + "/" +
             Integer.toString(points) + "/" +
             Integer.toString(personalMultiplier) + "/" +
             Integer.toString(experience) + "/" +

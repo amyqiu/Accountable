@@ -1,4 +1,4 @@
-package com.daph.accountable;
+package com.daph.accountable.model;
 
 /**
  * Created by Amy on 2016-08-20.
