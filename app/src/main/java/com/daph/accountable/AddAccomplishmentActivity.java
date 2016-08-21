@@ -102,10 +102,7 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
             intent = new Intent(AddAccomplishmentActivity.this, AddMeditationActivity.class);
         }
 
-
         startActivity(intent);
-
-
     }
 
 }

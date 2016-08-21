@@ -22,31 +22,28 @@ public class User {
         experience = 0;
     }
 
-    public User (String userString) {
-        String[] user = userString.split("/");
-        name = user[0];
+    public User(String newName) {
+        if (newName.contains("/")) {
+            String[] user = newName.split("/");
+            name = user[0];
 
-        points = Integer.parseInt(user[1]);
-        personalMultiplier = Double.parseDouble(user[2]);
-        experience = Integer.parseInt(user[3]);
+            points = Integer.parseInt(user[1]);
+            personalMultiplier = Double.parseDouble(user[2]);
+            experience = Integer.parseInt(user[3]);
 
-        workouts = Workout.stringToList(user[4]);
-        nutritions = Nutrition.stringToList(user[5]);
-        meditations = Meditation.stringToList(user[6]);
+            workouts = Workout.stringToList(user[4]);
+            nutritions = Nutrition.stringToList(user[5]);
+            meditations = Meditation.stringToList(user[6]);
+        } else {
+            name = newName;
+            points = 0;
+            personalMultiplier = 1;
+            experience = 0;
+            workouts = new ArrayList<>();
+            nutritions = new ArrayList<>();
+            meditations = new ArrayList<>();
+        }
     }
-
-    public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
-    {
-        name = newName;
-        points = 0;
-        personalMultiplier = 1;
-        experience = 0;
-        workouts = new ArrayList<>();
-        nutritions = new ArrayList<>();
-        meditations = new ArrayList<>();
-
-    }
-
     public void setName(String newName)
     {
         if (newName != null)

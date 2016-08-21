@@ -118,6 +118,7 @@ public class Nutrition extends Accomplishment {
 
     public static ArrayList<Nutrition> stringToList (String nutritionString) {
         ArrayList<Nutrition> newList = new ArrayList<>();
+        if ("empty".equals(nutritionString)) return newList;
         String[] stringarr = nutritionString.split(",");
         for (int i = 0; i < stringarr.length; i++) {
             newList.add(new Nutrition(stringarr[i]));
@@ -131,6 +132,7 @@ public class Nutrition extends Accomplishment {
         for (int i = 0; i < nutrition.size(); i++) {
             newList.add(nutrition.get(i).toString());
         }
+        if (newList.size() == 0) return "empty";
         return TextUtils.join(",", newList);
     }
 

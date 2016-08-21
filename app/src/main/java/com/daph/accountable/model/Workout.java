@@ -67,6 +67,7 @@ public class Workout extends Accomplishment{
 
     public static ArrayList<Workout> stringToList (String workoutsString) {
         ArrayList<Workout> newList = new ArrayList<>();
+        if ("empty".equals(workoutsString)) return newList;
         String[] stringarr = workoutsString.split(",");
         for (int i = 0; i < stringarr.length; i++) {
             newList.add(new Workout(stringarr[i]));
@@ -79,6 +80,7 @@ public class Workout extends Accomplishment{
         for (int i = 0; i < workouts.size(); i++) {
             newList.add(workouts.get(i).toString());
         }
+        if (newList.size() == 0) return "empty";
         return TextUtils.join(",", newList);
     }
 
