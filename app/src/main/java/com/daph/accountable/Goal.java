@@ -10,13 +10,17 @@ import java.util.List;
 public class Goal {
 
     private String name;
-    private String description;
-    private int value;
+    private String description; // Currently, gain weight, lose weight, maintain weight
+    private int value;          // Bulk: weight gain in pounds times 1000,
+                                // Cut: weight loss in pounds times 1000
+                                // Maintain: Weeks maintained times 1000
     private Date deadline;
-    public enum Category{
-        WORKOUT, MEDITATION, NUTRITION, SLEEP
+    public enum goalType{
+        BULK, CUT, MAINTAIN
     }
-    private Category category;
+    private goalType myGoalType;
+    private int goalWeight;
+    private Constants.Category category;
     private List<SubGoal> subGoals;
 
     public Goal()
@@ -24,13 +28,16 @@ public class Goal {
 
     }
 
-    public Goal(String newName, String newDescription, int newValue, Date newDeadline, Category newCategory)
+    public Goal(String newName, String newDescription, int newValue, Date newDeadline,
+                Constants.Category newCategory, goalType newGoalType, int newGoalWeight)
     {
         name = newName;
         description = newDescription;
         value = newValue;
         deadline = newDeadline;
         category = newCategory;
+        myGoalType = newGoalType;
+        goalWeight = newGoalWeight;
         subGoals = new ArrayList<SubGoal>();
     }
 
@@ -54,7 +61,7 @@ public class Goal {
         deadline = newDeadline;
     }
 
-    public void setCategory (Category newCategory)
+    public void setCategory (Constants.Category newCategory)
     {
         category = newCategory;
     }
@@ -84,7 +91,7 @@ public class Goal {
         return deadline;
     }
 
-    public Category getCategory()
+    public Constants.Category getCategory()
     {
         return category;
     }
@@ -92,6 +99,19 @@ public class Goal {
     public List<SubGoal> getSubGoals()
     {
         return subGoals;
+    }
+
+    public void goalEnd(User myUser, int newWeight) {
+        switch (myGoalType) {
+            case BULK:
+                 if (newWeight >= (goalWeight - 1) && newWeight <= (goalWeight + 1)) {
+                    myUser.addPoints(value);
+                } // add elsif 2 pounds, less points, etc
+                // include time based brackets? (more time bigger brackets)
+                break;
+            // Similar for cut
+            // Same for maintain, new weight is equal to user weight +/- 1 pound, etc)
+        }
     }
 
 }

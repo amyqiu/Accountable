@@ -15,6 +15,8 @@ public class User {
     private int height;
 
     private int points;
+    private int personalMultiplier;
+
     private int experience;
     private int level;
     private int levelMax;
@@ -42,6 +44,7 @@ public class User {
         height = newHeight;
 
         points = 0;
+        personalMultiplier = 1;
         experience = 0;
         level = 1;
         levelMax = 10;
@@ -62,7 +65,7 @@ public class User {
 
     }
 
-    //True = female, False = female
+    //True = female, False = male
     public void setGender(Boolean newGender)
     {
         gender = newGender;
@@ -100,8 +103,9 @@ public class User {
 
     public void addPoints(int morePoints)
     {
-        points = points + morePoints;
+        points = points +  personalMultiplier*morePoints;
     }
+    // Also include servermultiplier
 
     public void subtractPoints(int lessPoints)
     {
@@ -112,7 +116,6 @@ public class User {
     {
         experience = experience + moreExperience;
     }
-
 
     public String getName()
     {
@@ -216,9 +219,46 @@ public class User {
     //Checks current experience and level up accordingly
     public int refreshLevel()
     {
-        if (experience < 1000)
+        if (experience < 500)
         {
             level = 1;
+        }
+        else if (experience >= 500 && experience < 1500 )
+        {
+            level = 2;
+        }
+        else if (experience >= 1500 && experience < 3000 )
+        {
+            level = 3;
+        }
+        else if (experience >= 3000 && experience < 5000 )
+        {
+            level = 4;
+        }
+        else if (experience >= 5000 && experience < 7500 )
+        {
+            level = 5;
+        }
+
+        else if (experience >= 7500 && experience < 10500 )
+        {
+            level = 6;
+        }
+        else if (experience >= 10500 && experience < 14500 )
+        {
+            level = 7;
+        }
+        else if (experience >= 14500 && experience < 19500 )
+        {
+            level = 8;
+        }
+        else if (experience >= 19500 && experience < 25000 )
+        {
+            level = 9;
+        }
+        else
+        {
+            level = 10;
         }
         return level;
     }

@@ -3,25 +3,23 @@ package com.daph.accountable;
 /**
  * Created by Amy on 2016-08-20.
  */
-public class Challenge {
+public class Investment {
 
     protected int amount;
     protected User requester;
     protected User recipient;
 
-    public Challenge(){
+    public Investment(){
 
     }
 
-    public Challenge(int newAmount, User newRequester, User newRecipient)
+    public Investment(int newAmount, User newRequester, User newRecipient)
     {
         amount = newAmount;
         requester = newRequester;
         recipient = newRecipient;
 
-
-        requester.subtractPoints(amount);
-
+        requester.addPoints(amount * -1);
     }
 
     public void setAmount(int newAmount)
@@ -52,15 +50,6 @@ public class Challenge {
     public User getRecipient()
     {
         return recipient;
-    }
-
-    // WARNING: Make sure to use this in the main!!!!
-    public void addAccomplishment(Workout challengeWorkout) {
-        recipient.addWorkout(challengeWorkout);
-            }
-
-    public void addAccomplishment(Nutrition challengeNutrition) {
-        recipient.addNutrition(challengeNutrition);
     }
 
 }
