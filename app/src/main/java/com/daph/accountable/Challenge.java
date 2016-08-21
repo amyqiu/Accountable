@@ -19,7 +19,9 @@ public class Challenge {
         requester = newRequester;
         recipient = newRecipient;
 
+
         requester.subtractPoints(amount);
+
     }
 
     public void setAmount(int newAmount)
@@ -50,6 +52,15 @@ public class Challenge {
     public User getRecipient()
     {
         return recipient;
+    }
+
+    // WARNING: Make sure to use this in the main!!!!
+    public void addAccomplishment(Workout challengeWorkout) {
+        recipient.addWorkout(challengeWorkout);
+            }
+
+    public void addAccomplishment(Nutrition challengeNutrition) {
+        recipient.addNutrition(challengeNutrition);
     }
 
 }
