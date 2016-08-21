@@ -21,6 +21,8 @@ public class AddMeditationActivity extends AppCompatActivity {
         String accDesc = Constants.globalAccomplishment.getDescription();
 
 
+
+
         Intent intent = new Intent(AddMeditationActivity.this, AddWorkoutActivity.class);
         // Change the above to (AddMeditationActivity.this, splash.class);
         // the "splash" page says "Your Plant Gru!" with a back to menu button and maybe some
