@@ -91,7 +91,7 @@
         android:id="@+id/Points"
         android:clickable="true"
         android:spinnerMode="dropdown"
-        android:layout_alignTop="@+id/textView4"
+        android:layout_alignTop="@+id/title"
         android:layout_alignEnd="@+id/challenge"
         android:layout_marginEnd="13dp" />
 
@@ -99,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/textView4"
+        android:id="@+id/title"
         android:layout_alignTop="@+id/textView3"
         android:layout_alignStart="@+id/textView2"
         android:layout_alignEnd="@+id/textView2"
