@@ -122,7 +122,7 @@ public class Investment {
         });
     }
 
-    public static ArrayList<Investment> stringToList (ArrayList<String> investmentStringArr) {
+    public static ArrayList<Investment> stringListToInvestmentList (ArrayList<String> investmentStringArr) {
         ArrayList<Investment> newList = new ArrayList<>();
         for (int i = 0; i < investmentStringArr.size(); i++) {
             newList.add(new Investment(investmentStringArr.get(i)));
