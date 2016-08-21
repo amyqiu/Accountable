@@ -23,6 +23,7 @@ import java.util.List;
 
 public class InvestmentsActivity extends AppCompatActivity {
 
+    private List<Investment> allInvestments = new ArrayList<>();
     private List<Investment> seedMoney = new ArrayList<>();
     private List<Investment> investments = new ArrayList<>();
     private RecyclerView seedMoneyView;
@@ -46,6 +47,35 @@ public class InvestmentsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 allInvestments = Investment.stringListToInvestmentList((ArrayList<String>)dataSnapshot.getValue());
+
+                for (Investment investment:
+                        allInvestments) {
+                    if (investment.getRecipient().equals(name))
+                    {
+                        seedMoney.add(investment);
+                    }
+                    else if (investment.getRequester().equals(name))
+                    {
+                        investments.add(investment);
+                    }
+
+                }
+
+                seedMoneyView = (RecyclerView) findViewById(R.id.seed_money_view);
+                investmentsView = (RecyclerView) findViewById(R.id.investments_view);
+
+                mAdapter = new InvestmentAdapter(seedMoney);
+                iAdapter = new InvestmentAdapter(investments);
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+                RecyclerView.LayoutManager iLayoutManager = new LinearLayoutManager(getApplicationContext());
+
+                seedMoneyView.setLayoutManager(mLayoutManager);
+                seedMoneyView.setItemAnimator(new DefaultItemAnimator());
+                seedMoneyView.setAdapter(mAdapter);
+
+                investmentsView.setLayoutManager(iLayoutManager);
+                investmentsView.setItemAnimator(new DefaultItemAnimator());
+                investmentsView.setAdapter(iAdapter);
             }
 
             @Override
@@ -54,34 +84,7 @@ public class InvestmentsActivity extends AppCompatActivity {
             }
         });
 
-        for (Investment investment:
-             allInvestments) {
-            if (investment.getRecipient().getName() == name)
-            {
-                seedMoney.add(investment);
-            }
-            else
-            {
-                investments.add(investment);
-            }
 
-        }
-
-        seedMoneyView = (RecyclerView) findViewById(R.id.seed_money_view);
-        investmentsView = (RecyclerView) findViewById(R.id.investments_view);
-
-        mAdapter = new InvestmentAdapter(seedMoney);
-        iAdapter = new InvestmentAdapter(investments);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        RecyclerView.LayoutManager iLayoutManager = new LinearLayoutManager(getApplicationContext());
-
-        seedMoneyView.setLayoutManager(mLayoutManager);
-        seedMoneyView.setItemAnimator(new DefaultItemAnimator());
-        seedMoneyView.setAdapter(mAdapter);
-
-        investmentsView.setLayoutManager(iLayoutManager);
-        investmentsView.setItemAnimator(new DefaultItemAnimator());
-        investmentsView.setAdapter(iAdapter);
 
     }
 

@@ -44,8 +44,8 @@ public class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.My
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Investment investment = investments.get(position);
-        holder.name.setText(investment.getInvestmentTask().getName());
-        holder.value.setText(investment.getAmount());
+        holder.name.setText(investment.getInvestmentTask());
+        holder.value.setText(String.valueOf(investment.getAmount()));
         holder.investor.setText(investment.getRequester());
     }
 

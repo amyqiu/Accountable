@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.daph.accountable.model.Investment;
@@ -28,7 +29,7 @@ public class AddInvestmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_investment);
     }
 
-    public void invest(){
+    public void invest(View view){
 
         final User requester, recipient;
 
