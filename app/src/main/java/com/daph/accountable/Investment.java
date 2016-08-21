@@ -52,4 +52,21 @@ public class Investment {
         return recipient;
     }
 
+    // investmentCompleted in main function.
+    public void investmentCompleted(Workout challengeWorkout)
+    {
+        recipient.addWorkout(challengeWorkout);
+        recipient.addPoints(amount);
+        requester.addPoints(amount * 2);
+    }
+
+    public void investmentCompleted(Nutrition challengeNutrition)
+    {
+        recipient.addNutrition(challengeNutrition);
+        recipient.addPoints(amount);
+        requester.addPoints(amount * 2);
+    }
+
+    // No function for failure because investor already lost their amount, and investee gets
+    // nothing for doing nothing.
 }
