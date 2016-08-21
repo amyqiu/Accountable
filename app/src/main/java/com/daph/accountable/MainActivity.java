@@ -82,4 +82,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void seeChallengesInvestments(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, ChallengesInvestments.class);
+        startActivity(intent);
+    }
+
 }
