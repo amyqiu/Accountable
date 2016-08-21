@@ -36,6 +36,11 @@ public class User {
         experienceMax = 100;
     }
 
+    public User (String userString) {
+        String[] user = userString.split("/");
+
+    }
+
     public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
     {
         name = newName;
@@ -278,4 +283,23 @@ public class User {
         return level;
     }
 
+    @Override
+    public String toString()
+    {
+        return name + "/" +
+            Boolean.toString(gender) + "/" +
+            Integer.toString(age) + "/" +
+            Integer.toString(weight) + "/" +
+            Integer.toString(height) + "/" +
+            Integer.toString(points) + "/" +
+            Integer.toString(personalMultiplier) + "/" +
+            Integer.toString(experience) + "/" +
+            Integer.toString(level) + "/" +
+            Integer.toString(levelMax) + "/" +
+            Integer.toString(experienceMax) + "/" +
+            goals.toString() + "/" +
+            workouts.toString() + "/" +
+            nutritions.toString() + "/" +
+            meditations.toString();
+    }
 }
