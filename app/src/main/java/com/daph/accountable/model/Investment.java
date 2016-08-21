@@ -122,12 +122,10 @@ public class Investment {
         });
     }
 
-    public static ArrayList<Investment> stringToList (String investmentString) {
+    public static ArrayList<Investment> stringToList (ArrayList<String> investmentStringArr) {
         ArrayList<Investment> newList = new ArrayList<>();
-        if ("empty".equals(investmentString)) return newList;
-        String[] stringarr = investmentString.split(",");
-        for (int i = 0; i < stringarr.length; i++) {
-            newList.add(new Investment(stringarr[i]));
+        for (int i = 0; i < investmentStringArr.size(); i++) {
+            newList.add(new Investment(investmentStringArr.get(i)));
         }
         return newList;
     }
