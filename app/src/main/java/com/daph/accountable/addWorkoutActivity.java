@@ -18,7 +18,7 @@ import java.util.List;
 public class AddWorkoutActivity extends AppCompatActivity {
 
     Spinner choose;
-
+    int newIntensity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +42,7 @@ public class AddWorkoutActivity extends AppCompatActivity {
         choose.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String accName = Constants.globalAccomplishment.getName();
-                String accDesc = Constants.globalAccomplishment.getDescription();
+
 
                 double newIntensity = 0;
                 if (pos == 0)
@@ -62,12 +61,9 @@ public class AddWorkoutActivity extends AppCompatActivity {
                     //Set workout intensity to high
                 }
 
-                TextView time = (TextView) findViewById(R.id.editText);
 
-                Workout newWorkout = new Workout(accName, accDesc, newIntensity,
-                        Integer.parseInt(time.toString()));
 
-                Constants.globalUser.addWorkout(newWorkout);
+
 
             }
 
@@ -79,6 +75,16 @@ public class AddWorkoutActivity extends AppCompatActivity {
     }
 
     public void workoutNext() {
+        String accName = Constants.globalAccomplishment.getName();
+        String accDesc = Constants.globalAccomplishment.getDescription();
+
+        TextView time = (TextView) findViewById(R.id.editText);
+        Workout newWorkout = new Workout(accName, accDesc, newIntensity,
+                Integer.parseInt(time.toString()));
+
+        Constants.globalUser.addWorkout(newWorkout);
+        Constants.globalUser.addPoints(newWorkout.getValue());
+
         Intent intent = new Intent(AddWorkoutActivity.this, Splash.class);
         // Change the above to (AddWorkoutActivity.this, splash.class);
         // the "splash" page says "Your Plant Gru!" with a back to menu button and maybe some
