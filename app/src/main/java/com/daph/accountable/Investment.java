@@ -3,17 +3,17 @@ package com.daph.accountable;
 /**
  * Created by Amy on 2016-08-20.
  */
-public class Challenge {
+public class Investment {
 
     protected int amount;
     protected User requester;
     protected User recipient;
 
-    public Challenge(){
+    public Investment(){
 
     }
 
-    public Challenge(int newAmount, User newRequester, User newRecipient)
+    public Investment(int newAmount, User newRequester, User newRecipient)
     {
         amount = newAmount;
         requester = newRequester;

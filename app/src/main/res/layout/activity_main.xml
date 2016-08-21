@@ -12,23 +12,85 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome!"
+        android:text="@string/Intro"
         android:textSize="42sp"
-        android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif"
-        android:translationY="130sp"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:layout_above="@+id/Log"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="84dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/log"
-        android:id="@+id/button"
+        android:id="@+id/Log"
         android:textSize="30sp"
-        android:layout_below="@+id/textView"
+        style="?android:actionBarStyle"
+        android:background="#bbbbbb"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="192dp"
-        style="?android:actionButtonStyle"
-        />
+        android:clickable="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/challenge"
+        android:id="@+id/challenge"
+        android:textSize="30sp"
+        style="?android:actionButtonStyle"
+        android:background="#bbbbbb"
+        android:layout_below="@+id/Log"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:clickable="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit"
+        android:id="@+id/edit"
+        android:layout_marginTop="42dp"
+        style="?android:actionButtonStyle"
+        android:background="#bbbbbb"
+        android:layout_below="@+id/challenge"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:clickable="true" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_alignTop="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XP"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/progressBar"
+        android:layout_alignStart="@+id/edit"
+        android:layout_marginStart="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level:"
+        android:id="@+id/textView3"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/challenge" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Points"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignEnd="@+id/edit"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:spinnerMode="dropdown" />
 </RelativeLayout>

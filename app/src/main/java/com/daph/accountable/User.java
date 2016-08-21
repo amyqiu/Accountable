@@ -105,7 +105,6 @@ public class User {
         experience = experience + moreExperience;
     }
 
-
     public String getName()
     {
         return name;
