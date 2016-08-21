@@ -1,6 +1,4 @@
-package com.daph.accountable;
-
-import java.util.*;
+package com.daph.accountable.model;
 
 /**
  * Created by Derin on 2016-08-21.

@@ -8,7 +8,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddAccomplishment extends AppCompatActivity {
+public class AddAccomplishmentActivity extends AppCompatActivity {
     Spinner choose;
 
     @Override
