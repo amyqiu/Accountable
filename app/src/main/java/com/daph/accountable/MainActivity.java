@@ -3,6 +3,7 @@ package com.daph.accountable;
         import android.content.Context;
         import android.content.Intent;
         import android.content.SharedPreferences;
+        import android.content.res.Resources;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.util.Log;
@@ -20,7 +21,9 @@ package com.daph.accountable;
         import com.google.firebase.database.FirebaseDatabase;
         import com.google.firebase.database.ValueEventListener;
 
+        import java.text.Format;
         import java.util.ArrayList;
+        import java.util.Formatter;
         import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,26 +32,28 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar XP;
     LinearLayout level;
     TextView text1;
+    ArrayList<User> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        userList = new ArrayList<>();
         SharedPreferences prefs = this.getSharedPreferences(
                 "com.daph.accountable", Context.MODE_PRIVATE);
-        String name = prefs.getString("com.daph.accountable.name", "");
-        user = new User(name);
-        initializeSpinner();
-        initializeLevel();
-        initializePoints();
-
+        final String name = prefs.getString("com.daph.accountable.name", "");
+        ((TextView) findViewById(R.id.textView)).setText(String.format(this.getResources().getString(R.string.Intro), name));
+        user = null;
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = firebaseDatabase.getReference("users");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.i("database", "hey I got something");
-
+                ArrayList<User> userList = User.stringListToUserList((ArrayList<String>) dataSnapshot.getValue());
+                user = userList.get(User.userPos(name, userList));
+                initializeLevel();
+                initializePoints();
             }
 
             @Override
@@ -56,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        initializeSpinner();
     }
 
     protected void initializeSpinner() {
