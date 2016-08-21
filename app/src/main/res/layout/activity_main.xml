@@ -89,7 +89,7 @@
         android:id="@+id/Points"
         android:clickable="true"
         android:spinnerMode="dropdown"
-        android:layout_marginEnd="14sp" />
+        android:layout_marginEnd="14sp"/>
 
     <!--Number of Points-->
     <TextView
@@ -109,7 +109,7 @@
         android:textSize="20sp"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="20sp"
         android:onClick="addAccomplishment"/>
 
     <!--See Challenges-->
@@ -118,6 +118,17 @@
         android:layout_height="wrap_content"
         android:text="@string/challenge"
         android:id="@+id/challenge"
+        android:textSize="20sp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="seeChallengesInvestments"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/investment"
+        android:id="@+id/investment"
         android:textSize="20sp"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_marginTop="15dp"
