@@ -130,13 +130,12 @@ public class Investment {
         return newList;
     }
 
-    public static String listToString (List<Workout> investments) {
+    public static ArrayList<String> listToString (List<Investment> investments) {
         ArrayList<String> newList = new ArrayList<>();
         for (int i = 0; i < investments.size(); i++) {
             newList.add(investments.get(i).toString());
         }
-        if (newList.size() == 0) return "empty";
-        return TextUtils.join(",", newList);
+        return newList;
     }
 
     @Override

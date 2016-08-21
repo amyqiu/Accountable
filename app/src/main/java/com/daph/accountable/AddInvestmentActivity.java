@@ -51,6 +51,7 @@ public class AddInvestmentActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<Investment> allInvestments = Investment.stringListToInvestmentList((ArrayList<String>)dataSnapshot.getValue());
                 allInvestments.add(new Investment(gainAmount, name, personName));
+                newRef.setValue(Investment.listToString(allInvestments));
             }
 
             @Override
