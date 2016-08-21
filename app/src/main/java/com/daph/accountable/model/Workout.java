@@ -19,6 +19,8 @@ public class Workout extends Accomplishment{
     // Could also use fitbit info for heart rate
     private int time;
 
+    public Workout(){}
+
     // Take information from a form for this
     public Workout(String newName, String newDescription, int newIntensity, int newTime) {
         setName(newName);

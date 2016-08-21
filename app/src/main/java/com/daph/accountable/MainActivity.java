@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void initializeLevel() {
-        text1 = (TextView) findViewById(R.id.title);
+        text1 = (TextView) findViewById(R.id.textView3);
         text1.setText(String.valueOf(user.getLevel()));
     }
 

@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/spinner" />
+        android:layout_toEndOf="@+id/name" />
 
     <TextView
         android:layout_width="wrap_content"

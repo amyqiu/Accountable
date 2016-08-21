@@ -10,12 +10,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.daph.accountable.model.Accomplishment;
+import com.daph.accountable.model.Nutrition;
+import com.daph.accountable.model.Workout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddAccomplishmentActivity extends AppCompatActivity {
     Spinner choose;
+    String activity;
+    Accomplishment accomplishment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,33 +44,24 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         choose.setAdapter(adapter);
 
-        // on next click
-
-
-    }
-
-    public void accomplishmentNext() {
-
-
         choose.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                Intent intent;
                 if (pos == 0)
                 {
-                    intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+                    activity = "Workout";
+                    accomplishment = new Workout();
                 }
                 else if (pos == 1)
                 {
-                    //Change to nutrition
-                    intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+                    activity = "Nutrition";
+                    accomplishment = new Nutrition();
                 }
                 else
                 {
-                    //Change to meditation
-                    intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+                    activity = "Meditation";
+                    accomplishment = new Nutrition();
                 }
-                startActivity(intent);
 
             }
 
@@ -72,6 +70,40 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public void getData(){
+
+        TextView name = (TextView) findViewById(R.id.editText);
+        accomplishment.setName(name.getText().toString());
+
+        TextView description = (TextView) findViewById(R.id.editText2);
+        accomplishment.setDescription(description.getText().toString());
+
+    }
+
+    public void accomplishmentNext(View view) {
+
+        getData();
+
+        Intent intent;
+        if (activity == "Workout")
+        {
+            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+        }
+        else if (activity == "Nutrition")
+        {
+            //Change to nutrition
+            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+        }
+        else
+        {
+            //Change to meditation
+            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+        }
+        startActivity(intent);
+
 
     }
 

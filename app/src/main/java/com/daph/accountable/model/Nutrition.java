@@ -21,6 +21,8 @@ public class Nutrition extends Accomplishment {
 
     // Weekly calorie goal, daily protein goal7
 
+    public Nutrition(){}
+
     public Nutrition(int newDailyCalorieGoal, int newDailyProteinGoal) {
         dailyCalorieGoal = newDailyCalorieGoal;
         dailyProteinGoal = newDailyProteinGoal;
