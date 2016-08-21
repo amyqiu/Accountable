@@ -21,7 +21,6 @@ public class Workout extends Accomplishment{
 
     // Take information from a form for this
     public Workout(String newName, String newDescription, int newIntensity, int newTime) {
-
         setName(newName);
         setDescription(newDescription);
         // setCategory(Constants.Category.WORKOUT);
@@ -29,6 +28,15 @@ public class Workout extends Accomplishment{
         time = newTime;
         setValue((int)Math.round(time*intensity));
 
+    }
+
+    public Workout (String workoutString) {
+        String[] workoutArray = workoutString.split("~");
+        setName(workoutArray[0]);
+        setDescription(workoutArray[1]);
+        setValue(Integer.parseInt(workoutArray[2]));
+        intensity = Double.parseDouble(workoutArray[3]);
+        time = Integer.parseInt(workoutArray[4]);
     }
 
     public void WorkoutTime() {
@@ -55,6 +63,15 @@ public class Workout extends Accomplishment{
         return intensity;
     }
 
+    public static ArrayList<Workout> stringToList (String workoutsString) {
+        ArrayList<Workout> newList = new ArrayList<>();
+        String[] stringarr = workoutsString.split(",");
+        for (int i = 0; i < stringarr.length; i++) {
+            newList.add(new Workout(stringarr[i]));
+        }
+        return newList;
+    }
+
     public static String listToString (List<Workout> workouts) {
         ArrayList<String> newList = new ArrayList<>();
         for (int i = 0; i < workouts.size(); i++) {
@@ -71,6 +88,4 @@ public class Workout extends Accomplishment{
                 Double.toString(intensity) + "~" +
                 Integer.toString(time);
     }
-
-
 }

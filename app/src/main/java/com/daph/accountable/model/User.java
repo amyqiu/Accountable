@@ -30,9 +30,9 @@ public class User {
         personalMultiplier = Double.parseDouble(user[2]);
         experience = Integer.parseInt(user[3]);
 
-        workouts = new ArrayList<>();
-        nutritions = new ArrayList<>();
-        meditations = new ArrayList<>();
+        workouts = Workout.stringToList(user[4]);
+        nutritions = Nutrition.stringToList(user[5]);
+        meditations = Meditation.stringToList(user[6]);
     }
 
     public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
@@ -198,8 +198,8 @@ public class User {
             Integer.toString(points) + "/" +
             Double.toString(personalMultiplier) + "/" +
             Integer.toString(experience) + "/" +
-            workouts.toString() + "/" +
-            nutritions.toString() + "/" +
-            meditations.toString();
+            Workout.listToString(workouts) + "/" +
+            Nutrition.listToString(nutritions) + "/" +
+            Meditation.listToString(meditations);
     }
 }
