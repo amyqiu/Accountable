@@ -5,4 +5,9 @@
     <string name="challenge">See Challenges</string>
     <string name="name">Welcome</string>
     <string name="edit">Edit Profile</string>
+    <string name="accomplishment">Gro Your Plant</string>
+    <string name="category">Pick your category:</string>
+    <string name="accomplishmentName">Pick your name:</string>
+    <string name="description">Add a short description (optional):</string>
+    <string name="next">Next</string>
 </resources>
