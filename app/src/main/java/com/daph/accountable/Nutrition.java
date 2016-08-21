@@ -23,6 +23,8 @@ public class Nutrition extends Accomplishment {
         caloriesToday = 0; // Needs to be set later on.
         proteinToday = 0;
 
+        setCategory(Constants.Category.NUTRITION);
+
         // With this constructor, call nutritionPoints in main at the end of the day.
     }
 
@@ -33,6 +35,8 @@ public class Nutrition extends Accomplishment {
 
         caloriesToday = newCaloriesToday;
         proteinToday = newProteinToday;
+
+        setCategory(Constants.Category.NUTRITION);
 
         nutritionPoints(); // This is declared later, idk if it will work.
     }

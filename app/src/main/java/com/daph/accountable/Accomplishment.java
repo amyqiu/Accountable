@@ -8,10 +8,7 @@ public class Accomplishment {
     private String name;
     private String description;
     private int value;
-    public enum Category{
-        WORKOUT, MEDITATION, NUTRITION, SLEEP
-    }
-    private Category category;
+    private Constants.Category category;
 
     public Accomplishment()
     {
@@ -40,7 +37,7 @@ public class Accomplishment {
         value = newValue;
     }
 
-    public void setCategory (Category newCategory)
+    public void setCategory (Constants.Category newCategory)
     {
         category = newCategory;
     }
@@ -60,7 +57,7 @@ public class Accomplishment {
         return value;
     }
 
-    public Category getCategory()
+    public Constants.Category getCategory()
     {
         return category;
     }
