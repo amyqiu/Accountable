@@ -4,7 +4,10 @@ package com.daph.accountable;
         import android.os.Bundle;
         import android.util.Log;
         import android.widget.ArrayAdapter;
+        import android.widget.LinearLayout;
+        import android.widget.ProgressBar;
         import android.widget.Spinner;
+        import android.widget.TextView;
 
         import com.google.firebase.database.DataSnapshot;
         import com.google.firebase.database.DatabaseError;
@@ -16,11 +19,17 @@ package com.daph.accountable;
         import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    User user;
     Spinner choose;
+    ProgressBar XP;
+    LinearLayout level;
+    TextView text1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        user = new User();
         initializeSpinner();
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -37,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        initializeLevel();
+        initializePoints();
     }
 
     protected void initializeSpinner() {
@@ -53,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
         choose.setAdapter(adapter);
     }
 
+    protected void initializeLevel() {
+        text1 = (TextView) findViewById(R.id.textView4);
+        text1.setText(String.valueOf(user.getLevel()));
+    }
 
+    protected void initializePoints() {
+        text1 = (TextView) findViewById(R.id.textView5);
+        text1.setText(String.valueOf(user.getPoints()));
+    }
 
 }

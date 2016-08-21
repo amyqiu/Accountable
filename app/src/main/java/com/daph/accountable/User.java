@@ -15,16 +15,25 @@ public class User {
     private int height;
 
     private int points;
+    private int personalMultiplier;
+
     private int experience;
     private int level;
+    private int levelMax;
+    private int experienceMax;
 
     private List<Goal> goals;
     private List<Workout> workouts;
     private List<Nutrition> nutritions;
+    private List<Meditation> meditations;
 
     public User()
     {
-
+        points = 1024;
+        experience = 0;
+        level = 1;
+        levelMax = 10;
+        experienceMax = 100;
     }
 
     public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
@@ -36,12 +45,16 @@ public class User {
         height = newHeight;
 
         points = 0;
+        personalMultiplier = 1;
         experience = 0;
         level = 1;
+        levelMax = 10;
+        experienceMax = 100;
 
         goals = new ArrayList<>();
         workouts = new ArrayList<>();
         nutritions = new ArrayList<>();
+        meditations = new ArrayList<>();
 
     }
 
@@ -92,8 +105,9 @@ public class User {
 
     public void addPoints(int morePoints)
     {
-        points = points + morePoints;
+        points = points +  personalMultiplier*morePoints;
     }
+    // Also include servermultiplier
 
     public void subtractPoints(int lessPoints)
     {
@@ -145,6 +159,10 @@ public class User {
         return level;
     }
 
+    public int getLevelMax() { return  levelMax; }
+
+    public int getExperienceMax() { return experienceMax; }
+
     // **** ARRAYS ****
 
     // Array Accessors
@@ -163,6 +181,8 @@ public class User {
     {
         return nutritions;
     }
+
+    public List<Meditation> getMeditations() {return meditations; }
 
     // Array Mutators
 
@@ -199,13 +219,61 @@ public class User {
         nutritions.remove(deletedNutrition);
     }
 
+    // Meditation Info
+
+    public void addMeditation(Meditation newMeditation) { meditations.add(newMeditation); }
+
+    public void delMeditation(Meditation deletedMeditation) {
+        meditations.remove(deletedMeditation);
+    }
+
+
+
+
 
     //Checks current experience and level up accordingly
     public int refreshLevel()
     {
-        if (experience < 1000)
+        if (experience < 500)
         {
             level = 1;
+        }
+        else if (experience >= 500 && experience < 1500 )
+        {
+            level = 2;
+        }
+        else if (experience >= 1500 && experience < 3000 )
+        {
+            level = 3;
+        }
+        else if (experience >= 3000 && experience < 5000 )
+        {
+            level = 4;
+        }
+        else if (experience >= 5000 && experience < 7500 )
+        {
+            level = 5;
+        }
+
+        else if (experience >= 7500 && experience < 10500 )
+        {
+            level = 6;
+        }
+        else if (experience >= 10500 && experience < 14500 )
+        {
+            level = 7;
+        }
+        else if (experience >= 14500 && experience < 19500 )
+        {
+            level = 8;
+        }
+        else if (experience >= 19500 && experience < 25000 )
+        {
+            level = 9;
+        }
+        else
+        {
+            level = 10;
         }
         return level;
     }

@@ -19,7 +19,9 @@ public class Challenge {
         requester = newRequester;
         recipient = newRecipient;
 
-        requester.addPoints(amount * -1);
+
+        requester.subtractPoints(amount);
+
     }
 
     public void setAmount(int newAmount)
@@ -52,4 +54,22 @@ public class Challenge {
         return recipient;
     }
 
+    // WARNING: Make sure to use these in the main!!!!
+
+    public void challengeCompleted(Workout challengeWorkout) {
+        recipient.addWorkout(challengeWorkout);
+        recipient.addPoints(amount * 2);
+    }
+
+    public void challengeCompleted(Nutrition challengeNutrition)
+    {
+        recipient.addNutrition(challengeNutrition);
+        recipient.addPoints(amount * 2);
+    }
+
+    public void challengeFailed()
+    {
+        recipient.subtractPoints(amount);
+        requester.addPoints(amount * 2);
+    }
 }

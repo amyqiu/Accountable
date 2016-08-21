@@ -33,7 +33,7 @@ public class NutritionChallenge extends Challenge {
 
     public void failNutrition()
     {
-        recipient.addPoints(amount * -1);
+        recipient.subtractPoints(amount);
         requester.addPoints(amount * 2);
     }
 
