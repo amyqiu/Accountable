@@ -169,6 +169,16 @@ public class User {
         }
     }
 
+    public List<Investment> getInvestmentsInMe()
+    {
+        return investmentsInMe;
+    }
+
+    public List<Investment> getMyInvestments()
+    {
+        return myInvestments;
+    }
+
     //Checks current experience and level up accordingly
     public int getLevel()
     {
