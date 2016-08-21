@@ -10,19 +10,11 @@ public class User {
 
     private String name;
     private boolean gender;
-    private int age;
-    private int weight;
-    private int height;
 
     private int points;
     private int personalMultiplier;
 
     private int experience;
-    private int level;
-    private int levelMax;
-    private int experienceMax;
-
-    private List<Goal> goals;
     private List<Workout> workouts;
     private List<Nutrition> nutritions;
     private List<Meditation> meditations;
@@ -31,32 +23,29 @@ public class User {
     {
         points = 0;
         experience = 0;
-        level = 1;
-        levelMax = 10;
-        experienceMax = 100;
     }
 
     public User (String userString) {
         String[] user = userString.split("/");
+        name = user[0];
+        gender = Boolean.parseBoolean(user[1]);
 
+        points = Integer.parseInt(user[5]);
+        personalMultiplier = Integer.parseInt(user[6]);
+        experience = Integer.parseInt(user[7]);
+
+        workouts = new ArrayList<>();
+        nutritions = new ArrayList<>();
+        meditations = new ArrayList<>();
     }
 
     public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
     {
         name = newName;
         gender = newGender;
-        age = newAge;
-        weight = newWeight;
-        height = newHeight;
-
         points = 0;
         personalMultiplier = 1;
         experience = 0;
-        level = 1;
-        levelMax = 10;
-        experienceMax = 100;
-
-        goals = new ArrayList<>();
         workouts = new ArrayList<>();
         nutritions = new ArrayList<>();
         meditations = new ArrayList<>();
@@ -78,21 +67,6 @@ public class User {
         gender = newGender;
     }
 
-    public void setAge(int newAge)
-    {
-        age = newAge;
-    }
-
-    public void setWeight(int newWeight)
-    {
-        weight = newWeight;
-    }
-
-    public void setHeight(int newHeight)
-    {
-        height = newHeight;
-    }
-
     public void setPoints(int newPoints)
     {
         points = newPoints;
@@ -101,11 +75,6 @@ public class User {
     public void setExperience(int newExperience)
     {
         experience = newExperience;
-    }
-
-    public void setLevel(int newLevel)
-    {
-        level = newLevel;
     }
 
     public void addPoints(int morePoints)
@@ -134,21 +103,6 @@ public class User {
         return gender;
     }
 
-    public int getAge()
-    {
-        return age;
-    }
-
-    public int getWeight()
-    {
-        return weight;
-    }
-
-    public int getHeight()
-    {
-        return height;
-    }
-
     public int getPoints()
     {
         return points;
@@ -158,24 +112,9 @@ public class User {
     {
         return experience;
     }
-
-    public int getLevel()
-    {
-        return level;
-    }
-
-    public int getLevelMax() { return  levelMax; }
-
-    public int getExperienceMax() { return experienceMax; }
-
     // **** ARRAYS ****
 
     // Array Accessors
-
-    public List<Goal> getGoals()
-    {
-        return goals;
-    }
 
     public List<Workout> getWorkouts()
     {
@@ -190,17 +129,6 @@ public class User {
     public List<Meditation> getMeditations() {return meditations; }
 
     // Array Mutators
-
-    // Goal Info
-    public void addGoal(Goal newGoal)
-    {
-        goals.add(newGoal);
-    }
-
-    public void delGoal(Goal deletedGoal)
-    {
-        goals.remove(deletedGoal);
-    }
 
     // Workout Info
     public void addWorkout(Workout newWorkout)
@@ -237,50 +165,49 @@ public class User {
 
 
     //Checks current experience and level up accordingly
-    public int refreshLevel()
+    public int getLevel()
     {
         if (experience < 500)
         {
-            level = 1;
+            return  1;
         }
-        else if (experience >= 500 && experience < 1500 )
+        else if (experience < 1500 )
         {
-            level = 2;
+            return 2;
         }
-        else if (experience >= 1500 && experience < 3000 )
+        else if (experience < 3000 )
         {
-            level = 3;
+            return 3;
         }
-        else if (experience >= 3000 && experience < 5000 )
+        else if (experience < 5000 )
         {
-            level = 4;
+            return 4;
         }
-        else if (experience >= 5000 && experience < 7500 )
+        else if (experience < 7500 )
         {
-            level = 5;
+            return 5;
         }
 
-        else if (experience >= 7500 && experience < 10500 )
+        else if (experience < 10500 )
         {
-            level = 6;
+            return 6;
         }
-        else if (experience >= 10500 && experience < 14500 )
+        else if (experience < 14500 )
         {
-            level = 7;
+            return 7;
         }
-        else if (experience >= 14500 && experience < 19500 )
+        else if (experience < 19500 )
         {
-            level = 8;
+            return 8;
         }
-        else if (experience >= 19500 && experience < 25000 )
+        else if (experience < 25000 )
         {
-            level = 9;
+            return 9;
         }
         else
         {
-            level = 10;
+            return 10;
         }
-        return level;
     }
 
     @Override
@@ -288,16 +215,9 @@ public class User {
     {
         return name + "/" +
             Boolean.toString(gender) + "/" +
-            Integer.toString(age) + "/" +
-            Integer.toString(weight) + "/" +
-            Integer.toString(height) + "/" +
             Integer.toString(points) + "/" +
             Integer.toString(personalMultiplier) + "/" +
             Integer.toString(experience) + "/" +
-            Integer.toString(level) + "/" +
-            Integer.toString(levelMax) + "/" +
-            Integer.toString(experienceMax) + "/" +
-            goals.toString() + "/" +
             workouts.toString() + "/" +
             nutritions.toString() + "/" +
             meditations.toString();
