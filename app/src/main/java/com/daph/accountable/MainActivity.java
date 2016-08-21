@@ -1,6 +1,8 @@
 package com.daph.accountable;
 
+        import android.content.Context;
         import android.content.Intent;
+        import android.content.SharedPreferences;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.util.Log;
@@ -32,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        user = new User();
+        SharedPreferences prefs = this.getSharedPreferences(
+                "com.daph.accountable", Context.MODE_PRIVATE);
+        String name = prefs.getString("com.daph.accountable.name", "");
+        user = new User(name);
         initializeSpinner();
         initializeLevel();
         initializePoints();
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.i("database", "hey I got something");
+
             }
 
             @Override
@@ -67,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void initializeLevel() {
-        text1 = (TextView) findViewById(R.id.title);
+        text1 = (TextView) findViewById(R.id.textView4);
         text1.setText(String.valueOf(user.getLevel()));
     }
 
