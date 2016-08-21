@@ -38,4 +38,30 @@
         android:layout_alignTop="@+id/Category"
         android:layout_toEndOf="@+id/Category" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/spinner" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/workouttime"
+        android:id="@+id/name"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:id="@+id/Next"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/spinner"
+        android:onClick="workoutNext" />
+
 </RelativeLayout>
