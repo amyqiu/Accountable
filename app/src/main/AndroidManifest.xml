@@ -20,7 +20,7 @@
         <activity android:name=".AddAccomplishmentActivity" />
         <activity android:name=".AddWorkoutActivity" />
         <activity android:name=".AddNutritionActivity" />
-        <activity android:name=".AddMeditationActivity"></activity>
+        <activity android:name=".AddMeditationActivity"/>
     </application>
 
 </manifest>
