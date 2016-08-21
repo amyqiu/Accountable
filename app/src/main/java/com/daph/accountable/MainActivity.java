@@ -11,7 +11,9 @@ package com.daph.accountable;
         import android.widget.Spinner;
         import android.widget.TextView;
 
+        import com.daph.accountable.model.Meditation;
         import com.daph.accountable.model.User;
+        import com.daph.accountable.model.Workout;
         import com.google.firebase.database.DataSnapshot;
         import com.google.firebase.database.DatabaseError;
         import com.google.firebase.database.DatabaseReference;
@@ -33,16 +35,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         user = new User();
-        initializeSpinner();
-        initializeLevel();
-        initializePoints();
+//        initializeSpinner();
+//        initializeLevel();
+//        initializePoints();
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = firebaseDatabase.getReference("users");
+
+        ArrayList <String> users = new ArrayList<>();
+        User Henry = new User("Henry");
+        Henry.addMeditation(new Meditation());
+        users.add(Henry.toString());
+        users.add((new User("Derin")).toString());
+        users.add((new User("Presish")).toString());
+        users.add((new User("Amy")).toString());
+
+        myRef.setValue(users);
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.i("database", "hey I got something");
+                ArrayList<String> userList = (ArrayList<String>) dataSnapshot.getValue();
+                ArrayList <User> users = User.stringListToUserList(userList);
+                ArrayList <User> users2 = User.stringListToUserList(userList);
             }
 
             @Override

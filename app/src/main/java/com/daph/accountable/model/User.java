@@ -22,29 +22,28 @@ public class User {
         experience = 0;
     }
 
-    public User (String userString) {
-        String[] user = userString.split("/");
-        name = user[0];
-
-        points = Integer.parseInt(user[1]);
-        personalMultiplier = Double.parseDouble(user[2]);
-        experience = Integer.parseInt(user[3]);
-
-        workouts = Workout.stringToList(user[4]);
-        nutritions = Nutrition.stringToList(user[5]);
-        meditations = Meditation.stringToList(user[6]);
-    }
-
-    public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
+    public User(String newName)
     {
-        name = newName;
-        points = 0;
-        personalMultiplier = 1;
-        experience = 0;
-        workouts = new ArrayList<>();
-        nutritions = new ArrayList<>();
-        meditations = new ArrayList<>();
+        if (newName.contains("/")) {
+            String[] user = newName.split("/");
+            name = user[0];
 
+            points = Integer.parseInt(user[1]);
+            personalMultiplier = Double.parseDouble(user[2]);
+            experience = Integer.parseInt(user[3]);
+
+            workouts = Workout.stringToList(user[4]);
+            nutritions = Nutrition.stringToList(user[5]);
+            meditations = Meditation.stringToList(user[6]);
+        } else {
+            name = newName;
+            points = 0;
+            personalMultiplier = 1;
+            experience = 0;
+            workouts = new ArrayList<>();
+            nutritions = new ArrayList<>();
+            meditations = new ArrayList<>();
+        }
     }
 
     public void setName(String newName)
@@ -55,7 +54,6 @@ public class User {
         }
 
     }
-
 
     public void setPoints(int newPoints)
     {
@@ -201,5 +199,13 @@ public class User {
             Workout.listToString(workouts) + "/" +
             Nutrition.listToString(nutritions) + "/" +
             Meditation.listToString(meditations);
+    }
+
+    public static ArrayList<User> stringListToUserList (ArrayList<String> arr) {
+        ArrayList<User> userArr = new ArrayList<>();
+        for (int i = 0; i < arr.size(); ++i) {
+            userArr.add(new User(arr.get(i)));
+        }
+        return userArr;
     }
 }
