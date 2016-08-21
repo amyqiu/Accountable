@@ -188,6 +188,14 @@ public class User {
         }
     }
 
+    public static ArrayList<User> stringListToUserList (ArrayList<String> arr) {
+        ArrayList<User> userArr = new ArrayList<>();
+        for (int i = 0; i < arr.size(); ++i) {
+            userArr.add(new User(arr.get(i)));
+            }
+        return userArr;
+    }
+
     @Override
     public String toString()
     {
@@ -198,5 +206,16 @@ public class User {
             Workout.listToString(workouts) + "/" +
             Nutrition.listToString(nutritions) + "/" +
             Meditation.listToString(meditations);
+    }
+
+    public static int userPos (String name, ArrayList<User> userlist) {
+        int pos = -1;
+        for (int i = 0; i < userlist.size(); ++i) {
+            if (userlist.get(i).getName().equals(name)) {
+                pos = i;
+                break;
+            }
+        }
+        return pos;
     }
 }
