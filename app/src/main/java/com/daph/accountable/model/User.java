@@ -16,34 +16,41 @@ public class User {
     private List<Nutrition> nutritions;
     private List<Meditation> meditations;
 
+    private List<Investment> investmentsInMe;
+    private List<Investment> myInvestments;
     public User()
     {
         points = 0;
         experience = 0;
     }
 
-    public User(String newName) {
-        if (newName.contains("/")) {
-            String[] user = newName.split("/");
-            name = user[0];
+    public User (String userString) {
+        String[] user = userString.split("/");
+        name = user[0];
 
-            points = Integer.parseInt(user[1]);
-            personalMultiplier = Double.parseDouble(user[2]);
-            experience = Integer.parseInt(user[3]);
+        points = Integer.parseInt(user[1]);
+        personalMultiplier = Double.parseDouble(user[2]);
+        experience = Integer.parseInt(user[3]);
 
-            workouts = Workout.stringToList(user[4]);
-            nutritions = Nutrition.stringToList(user[5]);
-            meditations = Meditation.stringToList(user[6]);
-        } else {
-            name = newName;
-            points = 0;
-            personalMultiplier = 1;
-            experience = 0;
-            workouts = new ArrayList<>();
-            nutritions = new ArrayList<>();
-            meditations = new ArrayList<>();
-        }
+        workouts = Workout.stringToList(user[4]);
+        nutritions = Nutrition.stringToList(user[5]);
+        meditations = Meditation.stringToList(user[6]);
     }
+
+    public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
+    {
+        name = newName;
+        points = 0;
+        personalMultiplier = 1;
+        experience = 0;
+        workouts = new ArrayList<>();
+        nutritions = new ArrayList<>();
+        meditations = new ArrayList<>();
+        investmentsInMe = new ArrayList<>();
+        myInvestments = new ArrayList<>();
+
+    }
+
     public void setName(String newName)
     {
         if (newName != null)
@@ -140,6 +147,36 @@ public class User {
 
     public void delMeditation(Meditation deletedMeditation) {
         meditations.remove(deletedMeditation);
+    }
+
+    // Investment Info
+
+    public void addMeditation(Investment newInvestment, boolean mine) {
+        if (mine) {
+            myInvestments.add(newInvestment);
+        }
+        else {
+            investmentsInMe.add(newInvestment);
+        }
+    }
+
+    public void delInvestment(Investment deletedInvestment, boolean mine) {
+        if (mine) {
+            myInvestments.remove(deletedInvestment);
+        }
+        else {
+            investmentsInMe.remove(deletedInvestment);
+        }
+    }
+
+    public List<Investment> getInvestmentsInMe()
+    {
+        return investmentsInMe;
+    }
+
+    public List<Investment> getMyInvestments()
+    {
+        return myInvestments;
     }
 
     //Checks current experience and level up accordingly

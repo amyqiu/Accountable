@@ -54,6 +54,11 @@ public class Investment {
         return recipient;
     }
 
+    public Accomplishment getInvestmentTask()
+    {
+        return investmentTask;
+    }
+
     // investmentCompleted in main function.
     public void investmentType(Workout challengeWorkout) {
         investmentTask = challengeWorkout;
