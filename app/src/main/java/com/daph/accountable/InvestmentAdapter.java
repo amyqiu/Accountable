@@ -46,7 +46,7 @@ public class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.My
         Investment investment = investments.get(position);
         holder.name.setText(investment.getInvestmentTask().getName());
         holder.value.setText(investment.getAmount());
-        holder.investor.setText(investment.getRequester().getName());
+        holder.investor.setText(investment.getRequester());
     }
 
     @Override
