@@ -29,8 +29,8 @@ public class InvestmentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_investments);
 
-        seedMoney = Constants.globalUser.getInvestmentsInMe();
-        investments = Constants.globalUser.getMyInvestments();
+        //seedMoney = Constants.globalUser.getInvestmentsInMe();
+        //investments = Constants.globalUser.getMyInvestments();
 
         seedMoneyView = (RecyclerView) findViewById(R.id.seed_money_view);
         investmentsView = (RecyclerView) findViewById(R.id.investments_view);
