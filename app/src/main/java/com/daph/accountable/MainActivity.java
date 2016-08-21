@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void initializeLevel() {
-        text1 = (TextView) findViewById(R.id.title);
+        text1 = (TextView) findViewById(R.id.textView4);
         text1.setText(String.valueOf(user.getLevel()));
     }
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void addAccomplishment(View view)
     {
-        Intent intent = new Intent(MainActivity.this, AddAccomplishment.class);
+        Intent intent = new Intent(this, AddAccomplishment.class);
         startActivity(intent);
     }
 

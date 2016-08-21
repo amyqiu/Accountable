@@ -19,21 +19,28 @@
         android:textSize="42sp"
         android:fontFamily="sans-serif"
         android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"/>
+
+    <!--Plant Image-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150sp"/>
+        android:src="@drawable/plant_icon" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="10sp"
         android:layout_gravity="center_horizontal">
         <!-- Level Text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Level:"
+            android:text="Level: "
             android:id="@+id/textView3" />
 
         <!-- Level Number -->
@@ -47,7 +54,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XP"
+            android:text="            XP "
             android:id="@+id/textView2"
             android:layout_marginEnd="10dp" />
 
@@ -64,7 +71,7 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="10sp"
         android:layout_gravity="center_horizontal">
     <!--Points Text-->
     <TextView
@@ -82,7 +89,7 @@
         android:id="@+id/Points"
         android:clickable="true"
         android:spinnerMode="dropdown"
-        android:layout_marginEnd="13sp" />
+        android:layout_marginEnd="14sp" />
 
     <!--Number of Points-->
     <TextView
@@ -99,11 +106,10 @@
         android:layout_height="wrap_content"
         android:text="@string/log"
         android:id="@+id/Log"
-        android:textSize="30sp"
-        style="?android:actionBarStyle"
-        android:background="#bbbbbb"
+        android:textSize="15sp"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="30sp"
         android:onClick="addAccomplishment"/>
 
     <!--See Challenges-->
@@ -112,9 +118,8 @@
         android:layout_height="wrap_content"
         android:text="@string/challenge"
         android:id="@+id/challenge"
-        android:textSize="30sp"
-        style="?android:actionButtonStyle"
-        android:background="#bbbbbb"
+        android:textSize="15sp"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_marginTop="42dp"
         android:layout_gravity="center_horizontal"/>
 
@@ -125,9 +130,8 @@
         android:text="@string/edit"
         android:id="@+id/edit"
         android:layout_marginTop="42dp"
-        style="?android:actionButtonStyle"
-        android:background="#bbbbbb"
-        android:textSize="30dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:textSize="15dp"
         android:clickable="true"
         android:layout_gravity="center_horizontal"/>
 
