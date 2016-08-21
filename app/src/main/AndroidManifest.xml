@@ -23,7 +23,9 @@
         <activity android:name=".AddNutritionActivity" />
         <activity android:name=".AddMeditationActivity" />
         <activity android:name=".Splash" />
-        <activity android:name=".ChallengesInvestments"></activity>
+        <activity android:name=".ChallengesActivity" />
+        <activity android:name=".InvestmentsActivity" />
+        <activity android:name=".AddInvestmentActivity"></activity>
     </application>
 
 </manifest>
