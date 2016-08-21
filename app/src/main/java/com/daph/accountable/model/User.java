@@ -22,8 +22,7 @@ public class User {
         experience = 0;
     }
 
-    public User(String newName)
-    {
+    public User(String newName) {
         if (newName.contains("/")) {
             String[] user = newName.split("/");
             name = user[0];
