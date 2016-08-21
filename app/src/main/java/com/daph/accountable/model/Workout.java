@@ -22,7 +22,7 @@ public class Workout extends Accomplishment{
     public Workout(){}
 
     // Take information from a form for this
-    public Workout(String newName, String newDescription, int newIntensity, int newTime) {
+    public Workout(String newName, String newDescription, double newIntensity, int newTime) {
         setName(newName);
         setDescription(newDescription);
         // setCategory(Constants.Category.WORKOUT);
@@ -53,7 +53,7 @@ public class Workout extends Accomplishment{
         time = newTime;
     }
 
-    public void setIntensity(int newIntensity) {
+    public void setIntensity(double newIntensity) {
         intensity = newIntensity;
     }
 

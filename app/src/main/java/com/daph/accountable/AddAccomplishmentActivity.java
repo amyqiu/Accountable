@@ -10,6 +10,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.daph.accountable.model.Accomplishment;
+import com.daph.accountable.model.Constants;
+import com.daph.accountable.model.Meditation;
 import com.daph.accountable.model.Nutrition;
 import com.daph.accountable.model.Workout;
 
@@ -19,7 +21,7 @@ import java.util.List;
 public class AddAccomplishmentActivity extends AppCompatActivity {
     Spinner choose;
     String activity;
-    Accomplishment accomplishment;
+    //Accomplishment accomplishment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,17 +49,17 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
                 if (pos == 0)
                 {
                     activity = "Workout";
-                    accomplishment = new Workout();
+                    Constants.globalAccomplishment = new Workout();
                 }
                 else if (pos == 1)
                 {
                     activity = "Nutrition";
-                    accomplishment = new Nutrition();
+                    Constants.globalAccomplishment = new Nutrition();
                 }
                 else
                 {
                     activity = "Meditation";
-                    accomplishment = new Nutrition();
+                    Constants.globalAccomplishment = new Meditation();
                 }
 
             }
@@ -73,10 +75,10 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
     public void getData(){
 
         TextView name = (TextView) findViewById(R.id.editText);
-        accomplishment.setName(name.getText().toString());
+        Constants.globalAccomplishment.setName(name.getText().toString());
 
         TextView description = (TextView) findViewById(R.id.editText2);
-        accomplishment.setDescription(description.getText().toString());
+        Constants.globalAccomplishment.setDescription(description.getText().toString());
 
     }
 
@@ -85,11 +87,11 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
         getData();
 
         Intent intent;
-        if (activity == "Workout")
+        if (activity.equals("Workout"))
         {
             intent = new Intent(AddAccomplishmentActivity.this, AddWorkoutActivity.class);
         }
-        else if (activity == "Nutrition")
+        else if (activity.equals("Nutrition"))
         {
             //Change to nutrition
             intent = new Intent(AddAccomplishmentActivity.this, AddNutritionActivity.class);
@@ -99,6 +101,8 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
             //Change to meditation
             intent = new Intent(AddAccomplishmentActivity.this, AddMeditationActivity.class);
         }
+
+
         startActivity(intent);
 
 
