@@ -1,11 +1,20 @@
 package com.daph.accountable.model;
 
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 /**
  * Created by Derin on 2016-08-20.
  */
 public class Workout extends Accomplishment{
     // Include intensity enums
-    private int intensity; // Low = 1x multiplier, medium = 1.5x, high = 2x multiplier
+    private double intensity; // Low = 1x multiplier, medium = 1.5x, high = 2x multiplier
     // Actually on second thought, maybe define intensity
     // Could also use fitbit info for heart rate
     private int time;
@@ -18,7 +27,7 @@ public class Workout extends Accomplishment{
         // setCategory(Constants.Category.WORKOUT);
         intensity = newIntensity;
         time = newTime;
-        setValue(time*intensity);
+        setValue((int)Math.round(time*intensity));
 
     }
 
@@ -42,8 +51,26 @@ public class Workout extends Accomplishment{
         return time;
     }
 
-    public int getIntensity() {
+    public double getIntensity() {
         return intensity;
     }
+
+    public static String listToString (List<Workout> workouts) {
+        ArrayList<String> newList = new ArrayList<>();
+        for (int i = 0; i < workouts.size(); i++) {
+            newList.add(workouts.get(i).toString());
+        }
+        return TextUtils.join(",", newList);
+    }
+
+    @Override
+    public String toString () {
+        return getName() + "~" +
+                getDescription() + "~" +
+                Integer.toString(getValue()) + "~" +
+                Double.toString(intensity) + "~" +
+                Integer.toString(time);
+    }
+
 
 }

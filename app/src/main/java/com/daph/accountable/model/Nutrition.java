@@ -1,5 +1,10 @@
 package com.daph.accountable.model;
 
+import android.text.TextUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Derin on 2016-08-20.
  */
@@ -97,6 +102,25 @@ public class Nutrition extends Accomplishment {
         }
 
         setValue(multiplier * 100); // 100 is just a placeholder value
+    }
+
+    public static String listToString (List<Nutrition> nutrition) {
+        ArrayList<String> newList = new ArrayList<>();
+        for (int i = 0; i < nutrition.size(); i++) {
+            newList.add(nutrition.get(i).toString());
+        }
+        return TextUtils.join(",", newList);
+    }
+
+    @Override
+    public String toString () {
+        return getName() + "~" +
+                getDescription() + "~" +
+                Integer.toString(getValue()) + "~" +
+                Integer.toString(dailyCalorieGoal) + "~" +
+                Integer.toString(dailyProteinGoal) + "~" +
+                Integer.toString(caloriesToday) + "~" +
+                Integer.toString(proteinToday);
     }
 
 
