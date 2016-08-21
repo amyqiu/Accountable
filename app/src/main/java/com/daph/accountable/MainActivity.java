@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         initializeLevel();
         initializePoints();
+        XP = (ProgressBar) findViewById(R.id.progressBar) ;
+        XP.setProgress(user.getExperience());
     }
 
     protected void initializeSpinner() {
