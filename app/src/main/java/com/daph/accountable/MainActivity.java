@@ -1,6 +1,8 @@
 package com.daph.accountable;
 
+        import android.content.Context;
         import android.content.Intent;
+        import android.content.SharedPreferences;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.util.Log;
@@ -11,7 +13,6 @@ package com.daph.accountable;
         import android.widget.Spinner;
         import android.widget.TextView;
 
-        import com.daph.accountable.model.Constants;
         import com.daph.accountable.model.User;
         import com.google.firebase.database.DataSnapshot;
         import com.google.firebase.database.DatabaseError;
@@ -23,7 +24,7 @@ package com.daph.accountable;
         import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    //User user;
+    User user;
     Spinner choose;
     ProgressBar XP;
     LinearLayout level;
@@ -33,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Constants.globalUser = new User();
+        SharedPreferences prefs = this.getSharedPreferences(
+                "com.daph.accountable", Context.MODE_PRIVATE);
+        String name = prefs.getString("com.daph.accountable.name", "");
+        user = new User(name);
         initializeSpinner();
         initializeLevel();
         initializePoints();
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.i("database", "hey I got something");
+
             }
 
             @Override
@@ -68,24 +73,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void initializeLevel() {
-        text1 = (TextView) findViewById(R.id.textView3);
-        text1.setText(String.valueOf(Constants.globalUser.getLevel()));
+        text1 = (TextView) findViewById(R.id.textView4);
+        text1.setText(String.valueOf(user.getLevel()));
     }
 
     protected void initializePoints() {
         text1 = (TextView) findViewById(R.id.textView5);
-        text1.setText(String.valueOf(Constants.globalUser.getPoints()));
+        text1.setText(String.valueOf(user.getPoints()));
     }
 
     public void addAccomplishment(View view)
     {
         Intent intent = new Intent(MainActivity.this, AddAccomplishmentActivity.class);
-        startActivity(intent);
-    }
-
-    public void seeChallengesInvestments(View view)
-    {
-        Intent intent = new Intent(MainActivity.this, ChallengesActivity.class);
         startActivity(intent);
     }
 

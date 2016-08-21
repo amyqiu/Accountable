@@ -12,6 +12,7 @@ public class Meditation extends Accomplishment {
     private int time;
 
     public Meditation() {
+        super("meds", "hype", 69);
         time = 0;
     }
 
@@ -37,6 +38,7 @@ public class Meditation extends Accomplishment {
 
     public static ArrayList<Meditation> stringToList (String meditationString) {
         ArrayList<Meditation> newList = new ArrayList<>();
+        if ("empty".equals(meditationString)) return newList;
         String[] stringarr = meditationString.split(",");
         for (int i = 0; i < stringarr.length; i++) {
             newList.add(new Meditation(stringarr[i]));
@@ -49,6 +51,7 @@ public class Meditation extends Accomplishment {
         for (int i = 0; i < mediation.size(); i++) {
             newList.add(mediation.get(i).toString());
         }
+        if (newList.size() == 0) return "empty";
         return TextUtils.join(",", newList);
     }
 
