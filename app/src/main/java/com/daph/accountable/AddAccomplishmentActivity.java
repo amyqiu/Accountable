@@ -1,5 +1,6 @@
 package com.daph.accountable;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -28,5 +29,37 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         choose.setAdapter(adapter);
+
+        // on next click
+
+
     }
+
+    public void accomplishmentNext() {
+
+        // I need the spinner info
+        // I n
+
+        Intent intent;
+
+        String spinnerText = choose.getSelectedItem().toString();
+
+        if (spinnerText.equals("Workout")) {
+            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+        }
+        else if (spinnerText.equals("Nutrition")) {
+           // intent = new Intent(AddAccomplishmentActivity.this, addNutritionActivity.class);
+            // Once we actually make addNutritionActivity.class
+        }
+        else if (spinnerText.equals("Meditation")) {
+            // intent = new Intent(AddAccomplishmentActivity.this, addMeditationActivity.class);
+            // As above, note that this is an else if in case we add other activities
+        }
+
+
+
+
+        startActivity(intent);
+    }
+
 }
