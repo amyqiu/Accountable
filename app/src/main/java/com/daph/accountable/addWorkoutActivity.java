@@ -83,6 +83,10 @@ public class AddWorkoutActivity extends AppCompatActivity {
         User.addWorkout(Constants.globalUser.getName(), newWorkout);
         Constants.globalUser.addPoints(newWorkout.getValue());
 
+        int addedPoints = newWorkout.getValue();
+        Constants.globalUser.addPoints(addedPoints);
+        User.addPoints(Constants.globalUser.getName(), addedPoints);
+
         Intent intent = new Intent(AddWorkoutActivity.this, Splash.class);
         // Change the above to (AddWorkoutActivity.this, splash.class);
         // the "splash" page says "Your Plant Gru!" with a back to menu button and maybe some

@@ -284,4 +284,27 @@ public class User {
             }
         });
     }
+
+    public static void addPoints(final String username, final int newPoints) {
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = firebaseDatabase.getReference("users");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.i("database", "hey I got something");
+                ArrayList<User> userList = User.stringListToUserList((ArrayList<String>) dataSnapshot.getValue());
+                int pos = User.userPos(username, userList);
+                User user = userList.get(pos);
+                user.addPoints(newPoints);
+
+
+
+                myRef.setValue(userList);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
 }
