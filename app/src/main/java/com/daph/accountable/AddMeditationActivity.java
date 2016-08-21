@@ -23,7 +23,7 @@ public class AddMeditationActivity extends AppCompatActivity {
 
 
 
-        Intent intent = new Intent(AddMeditationActivity.this, AddWorkoutActivity.class);
+        Intent intent = new Intent(AddMeditationActivity.this, Splash.class);
         // Change the above to (AddMeditationActivity.this, splash.class);
         // the "splash" page says "Your Plant Gru!" with a back to menu button and maybe some
         // display shit (like how many gains you got, and your XP until next level)

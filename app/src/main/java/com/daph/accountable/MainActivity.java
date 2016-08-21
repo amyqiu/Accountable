@@ -102,4 +102,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addInvestment (View view)
+    {
+        Intent intent = new Intent(MainActivity.this, InvestmentsActivity.class);
+        startActivity(intent);
+    }
+
 }
