@@ -8,7 +8,6 @@ public class Accomplishment {
     private String name;
     private String description;
     private int value;
-    private Constants.Category category;
 
     public Accomplishment()
     {
@@ -37,10 +36,10 @@ public class Accomplishment {
         value = newValue;
     }
 
-    public void setCategory (Constants.Category newCategory)
+    /* public void setCategory (Constants.Category newCategory)
     {
         category = newCategory;
-    }
+    } */
 
     public String getName()
     {
@@ -57,10 +56,10 @@ public class Accomplishment {
         return value;
     }
 
-    public Constants.Category getCategory()
+    /* public Constants.Category getCategory()
     {
         return category;
-    }
+    } */
 
     // NOTE When someone adds any accomplishment, just use (USER).addPoints(getValue);
 }
