@@ -32,7 +32,8 @@
 
         <EditText
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/proteinIntake"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,6 +59,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/Calorie"
             />
 
         </LinearLayout>
