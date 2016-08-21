@@ -10,13 +10,8 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
-import com.daph.accountable.model.Nutrition;
-import com.daph.accountable.model.Workout;
-
-public class addWorkoutActivity extends AppCompatActivity {
+public class AddWorkoutActivity extends AppCompatActivity {
 
     Spinner choose;
 
@@ -66,8 +61,8 @@ public class addWorkoutActivity extends AppCompatActivity {
     }
 
     public void workoutNext() {
-        Intent intent = new Intent(addWorkoutActivity.this, addWorkoutActivity.class);
-        // Change the above to (addWorkoutActivity.this, splash.class);
+        Intent intent = new Intent(AddWorkoutActivity.this, AddWorkoutActivity.class);
+        // Change the above to (AddWorkoutActivity.this, splash.class);
         // the "splash" page says "Your Plant Gru!" with a back to menu button and maybe some
         // display shit (like how many gains you got, and your XP until next level)
 

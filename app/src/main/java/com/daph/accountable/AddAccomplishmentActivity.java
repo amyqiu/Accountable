@@ -1,11 +1,8 @@
 package com.daph.accountable;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -90,17 +87,17 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
         Intent intent;
         if (activity == "Workout")
         {
-            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+            intent = new Intent(AddAccomplishmentActivity.this, AddWorkoutActivity.class);
         }
         else if (activity == "Nutrition")
         {
             //Change to nutrition
-            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+            intent = new Intent(AddAccomplishmentActivity.this, AddNutritionActivity.class);
         }
         else
         {
             //Change to meditation
-            intent = new Intent(AddAccomplishmentActivity.this, addWorkoutActivity.class);
+            intent = new Intent(AddAccomplishmentActivity.this, AddWorkoutActivity.class);
         }
         startActivity(intent);
 
