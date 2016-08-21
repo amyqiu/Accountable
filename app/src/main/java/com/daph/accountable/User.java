@@ -25,6 +25,7 @@ public class User {
     private List<Goal> goals;
     private List<Workout> workouts;
     private List<Nutrition> nutritions;
+    private List<Meditation> meditations;
 
     public User()
     {
@@ -53,6 +54,7 @@ public class User {
         goals = new ArrayList<>();
         workouts = new ArrayList<>();
         nutritions = new ArrayList<>();
+        meditations = new ArrayList<>();
 
     }
 
@@ -180,6 +182,8 @@ public class User {
         return nutritions;
     }
 
+    public List<Meditation> getMeditations() {return meditations; }
+
     // Array Mutators
 
     // Goal Info
@@ -214,6 +218,17 @@ public class User {
     {
         nutritions.remove(deletedNutrition);
     }
+
+    // Meditation Info
+
+    public void addMeditation(Meditation newMeditation) { meditations.add(newMeditation); }
+
+    public void delMeditation(Meditation deletedMeditation) {
+        meditations.remove(deletedMeditation);
+    }
+
+
+
 
 
     //Checks current experience and level up accordingly
