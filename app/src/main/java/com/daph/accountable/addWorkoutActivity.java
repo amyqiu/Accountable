@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.daph.accountable.model.Constants;
+import com.daph.accountable.model.User;
 import com.daph.accountable.model.Workout;
 
 import java.util.ArrayList;
@@ -61,10 +62,6 @@ public class AddWorkoutActivity extends AppCompatActivity {
                     //Set workout intensity to high
                 }
 
-
-
-
-
             }
 
             @Override
@@ -83,6 +80,7 @@ public class AddWorkoutActivity extends AppCompatActivity {
                 Integer.parseInt(time.toString()));
 
         Constants.globalUser.addWorkout(newWorkout);
+        User.addWorkout(Constants.globalUser.getName(), newWorkout);
         Constants.globalUser.addPoints(newWorkout.getValue());
 
         Intent intent = new Intent(AddWorkoutActivity.this, Splash.class);
