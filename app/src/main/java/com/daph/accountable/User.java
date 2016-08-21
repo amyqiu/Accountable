@@ -140,6 +140,20 @@ public class User {
         return points;
     }
 
+    public int getExperience()
+    {
+        return experience;
+    }
+
+    public int getLevel()
+    {
+        return level;
+    }
+
+    // **** ARRAYS ****
+
+    // Array Accessors
+
     public List<Goal> getGoals()
     {
         return goals;
@@ -155,15 +169,41 @@ public class User {
         return nutritions;
     }
 
-    public int getExperience()
+    // Array Mutators
+
+    // Goal Info
+    public void addGoal(Goal newGoal)
     {
-        return experience;
+        goals.add(newGoal);
     }
 
-    public int getLevel()
+    public void delGoal(Goal deletedGoal)
     {
-        return level;
+        goals.remove(deletedGoal);
     }
+
+    // Workout Info
+    public void addWorkout(Workout newWorkout)
+    {
+        workouts.add(newWorkout);
+    }
+
+    public void delWorkout(Workout deletedWorkout)
+    {
+        workouts.remove(deletedWorkout);
+    }
+
+    // Nutrition Info
+    public void addNutrition(Nutrition newNutrition)
+    {
+        nutritions.add(newNutrition);
+    }
+
+    public void delNutrition(Nutrition deletedNutrition)
+    {
+        nutritions.remove(deletedNutrition);
+    }
+
 
     //Checks current experience and level up accordingly
     public int refreshLevel()
