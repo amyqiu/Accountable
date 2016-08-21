@@ -1,7 +1,9 @@
 package com.daph.accountable;
 
+        import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.view.View;
         import android.widget.ArrayAdapter;
         import android.widget.LinearLayout;
         import android.widget.ProgressBar;
@@ -50,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
     protected void initializePoints() {
         text1 = (TextView) findViewById(R.id.textView5);
         text1.setText(String.valueOf(user.getPoints()));
+    }
+
+    public void addAccomplishment(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, AddAccomplishment.class);
+        startActivity(intent);
     }
 
 }

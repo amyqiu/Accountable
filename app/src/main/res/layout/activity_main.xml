@@ -103,7 +103,8 @@
         style="?android:actionBarStyle"
         android:background="#bbbbbb"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50sp"/>
+        android:layout_marginTop="50sp"
+        android:onClick="addAccomplishment"/>
 
     <!--See Challenges-->
     <Button
