@@ -14,7 +14,7 @@ public class AddNutritionActivity extends AppCompatActivity {
     }
 
     public void nutritionNext(View view) {
-        Intent intent = new Intent(AddNutritionActivity.this, AddWorkoutActivity.class);
+        Intent intent = new Intent(AddNutritionActivity.this, Splash.class);
         // Change the above to (AddNutritionActivity.this, splash.class);
         // the "splash" page says "Your Plant Gru!" with a back to menu button and maybe some
         // display shit (like how many gains you got, and your XP until next level)
