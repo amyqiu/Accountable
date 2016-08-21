@@ -54,7 +54,7 @@ public class User {
 
     }
 
-    //True = female, False = female
+    //True = female, False = male
     public void setGender(Boolean newGender)
     {
         gender = newGender;
