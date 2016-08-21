@@ -20,20 +20,20 @@
         android:fontFamily="sans-serif"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150sp"/>
+        android:layout_marginTop="80sp"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="10sp"
         android:layout_gravity="center_horizontal">
         <!-- Level Text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Level:"
+            android:text="Level:   "
             android:id="@+id/textView3" />
 
         <!-- Level Number -->
@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XP"
+            android:text="      XP         "
             android:id="@+id/textView2"
             android:layout_marginEnd="10dp" />
 
@@ -56,7 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:scaleX="2"/>
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -64,7 +65,7 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="10sp"
         android:layout_gravity="center_horizontal">
     <!--Points Text-->
     <TextView
@@ -103,7 +104,7 @@
         style="?android:actionBarStyle"
         android:background="#bbbbbb"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50sp"/>
+        android:layout_marginTop="25sp"/>
 
     <!--See Challenges-->
     <Button
@@ -127,7 +128,6 @@
         style="?android:actionButtonStyle"
         android:background="#bbbbbb"
         android:textSize="30dp"
-        android:clickable="true"
         android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
