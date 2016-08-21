@@ -1,13 +1,21 @@
 package com.daph.accountable.model;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 /**
  * Created by Amy on 2016-08-20.
  */
 public class Investment {
 
     protected int amount;
-    protected User requester;
-    protected User recipient;
+    protected String requester;
+    protected String recipient;
 
     Accomplishment investmentTask;
 
@@ -15,13 +23,13 @@ public class Investment {
 
     }
 
-    public Investment(int newAmount, User newRequester, User newRecipient)
+    public Investment(int newAmount, String newRequester, String newRecipient)
     {
         amount = newAmount;
         requester = newRequester;
         recipient = newRecipient;
 
-        requester.addPoints(amount * -1);
+       // requester.addPoints(amount * -1); Take money from requester on creating the investment
     }
 
     public void setAmount(int newAmount)
@@ -29,12 +37,12 @@ public class Investment {
         amount = newAmount;
     }
 
-    public void setRequester(User newRequester)
+    public void setRequester(String newRequester)
     {
         requester = newRequester;
     }
 
-    public void setRecipient(User newRecipient)
+    public void setRecipient(String newRecipient)
     {
         recipient = newRecipient;
     }
@@ -44,12 +52,12 @@ public class Investment {
         return amount;
     }
 
-    public User getRequester()
+    public String getRequester()
     {
         return requester;
     }
 
-    public User getRecipient()
+    public String getRecipient()
     {
         return recipient;
     }
@@ -68,18 +76,50 @@ public class Investment {
         investmentTask = challengeNutrition;
     }
 
-    public void investmentCompleted(Workout challengeWorkout)
+    public void investmentCompleted(final Workout challengeWorkout)
     {
-        recipient.addWorkout(challengeWorkout);
-        recipient.addPoints(amount);
-        requester.addPoints(amount * 2);
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = firebaseDatabase.getReference("users");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<User> userList = User.stringListToUserList((ArrayList<String>) dataSnapshot.getValue());
+                int pos = User.userPos(recipient, userList);
+                userList.get(pos).addWorkout(challengeWorkout);
+                userList.get(pos).addPoints(amount);
+                pos = User.userPos(requester, userList);
+                userList.get(pos).addPoints(amount * 2);
+                myRef.setValue(userList);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
-    public void investmentCompleted(Nutrition challengeNutrition)
+    public void investmentCompleted(final Nutrition challengeNutrition)
     {
-        recipient.addNutrition(challengeNutrition);
-        recipient.addPoints(amount);
-        requester.addPoints(amount * 2);
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = firebaseDatabase.getReference("users");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<User> userList = User.stringListToUserList((ArrayList<String>) dataSnapshot.getValue());
+                int pos = User.userPos(recipient, userList);
+                userList.get(pos).addNutrition(challengeNutrition);
+                userList.get(pos).addPoints(amount);
+                pos = User.userPos(requester, userList);
+                userList.get(pos).addPoints(amount * 2);
+                myRef.setValue(userList);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     // No function for failure because investor already lost their amount, and investee gets
