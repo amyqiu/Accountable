@@ -11,6 +11,7 @@ package com.daph.accountable;
         import android.widget.Spinner;
         import android.widget.TextView;
 
+        import com.daph.accountable.model.Constants;
         import com.daph.accountable.model.User;
         import com.google.firebase.database.DataSnapshot;
         import com.google.firebase.database.DatabaseError;
@@ -22,7 +23,7 @@ package com.daph.accountable;
         import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    User user;
+    //User user;
     Spinner choose;
     ProgressBar XP;
     LinearLayout level;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        user = new User();
+        Constants.globalUser = new User();
         initializeSpinner();
         initializeLevel();
         initializePoints();
@@ -68,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
 
     protected void initializeLevel() {
         text1 = (TextView) findViewById(R.id.textView3);
-        text1.setText(String.valueOf(user.getLevel()));
+        text1.setText(String.valueOf(Constants.globalUser.getLevel()));
     }
 
     protected void initializePoints() {
         text1 = (TextView) findViewById(R.id.textView5);
-        text1.setText(String.valueOf(user.getPoints()));
+        text1.setText(String.valueOf(Constants.globalUser.getPoints()));
     }
 
     public void addAccomplishment(View view)

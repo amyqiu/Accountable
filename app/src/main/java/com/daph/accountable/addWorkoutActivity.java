@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.daph.accountable.model.Constants;
+import com.daph.accountable.model.Workout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,18 +42,32 @@ public class AddWorkoutActivity extends AppCompatActivity {
         choose.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                String accName = Constants.globalAccomplishment.getName();
+                String accDesc = Constants.globalAccomplishment.getDescription();
+
+                double newIntensity = 0;
                 if (pos == 0)
                 {
+                    newIntensity = 1;
                     //Set workout intensity to low
                 }
                 else if (pos == 1)
                 {
+                    newIntensity = 1.5;
                     //Set workout intensity to medium
                 }
                 else
                 {
+                    newIntensity = 2;
                     //Set workout intensity to high
                 }
+
+                TextView time = (TextView) findViewById(R.id.editText);
+
+                Workout newWorkout = new Workout(accName, accDesc, newIntensity,
+                        Integer.parseInt(time.toString()));
+
+                Constants.globalUser.addWorkout(newWorkout);
 
             }
 
