@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.daph.accountable.R;
+import com.daph.accountable.model.Constants;
 
 public class AddMeditationActivity extends AppCompatActivity {
 
@@ -16,7 +17,13 @@ public class AddMeditationActivity extends AppCompatActivity {
     }
 
     public void meditationNext(View view) {
-        Intent intent = new Intent(AddMeditationActivity.this, Splash.class);
+        String accName = Constants.globalAccomplishment.getName();
+        String accDesc = Constants.globalAccomplishment.getDescription();
+
+
+
+
+        Intent intent = new Intent(AddMeditationActivity.this, AddWorkoutActivity.class);
         // Change the above to (AddMeditationActivity.this, splash.class);
         // the "splash" page says "Your Plant Gru!" with a back to menu button and maybe some
         // display shit (like how many gains you got, and your XP until next level)

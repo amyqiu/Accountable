@@ -45,7 +45,6 @@ public class User {
             meditations = new ArrayList<>();
         }
     }
-
     public void setName(String newName)
     {
         if (newName != null)
@@ -54,6 +53,7 @@ public class User {
         }
 
     }
+
 
     public void setPoints(int newPoints)
     {
@@ -199,13 +199,5 @@ public class User {
             Workout.listToString(workouts) + "/" +
             Nutrition.listToString(nutritions) + "/" +
             Meditation.listToString(meditations);
-    }
-
-    public static ArrayList<User> stringListToUserList (ArrayList<String> arr) {
-        ArrayList<User> userArr = new ArrayList<>();
-        for (int i = 0; i < arr.size(); ++i) {
-            userArr.add(new User(arr.get(i)));
-        }
-        return userArr;
     }
 }

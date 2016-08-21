@@ -2,7 +2,8 @@
     <string name="app_name">Gro</string>
     <string name="Intro">Welcome!</string>
     <string name="log">Gro Your Plant</string>
-    <string name="challenge">Investments / Challenges / </string>
+    <string name="challenge">Challenges</string>
+    <string name="investment">Investments</string>
     <string name="name">Welcome</string>
     <string name="workout_more">Add New Workout</string>
     <string name="edit">Edit Profile</string>

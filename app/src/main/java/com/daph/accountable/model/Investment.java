@@ -9,6 +9,8 @@ public class Investment {
     protected User requester;
     protected User recipient;
 
+    Accomplishment investmentTask;
+
     public Investment(){
 
     }
@@ -53,6 +55,14 @@ public class Investment {
     }
 
     // investmentCompleted in main function.
+    public void investmentType(Workout challengeWorkout) {
+        investmentTask = challengeWorkout;
+    }
+
+    public void investmentType(Nutrition challengeNutrition) {
+        investmentTask = challengeNutrition;
+    }
+
     public void investmentCompleted(Workout challengeWorkout)
     {
         recipient.addWorkout(challengeWorkout);
