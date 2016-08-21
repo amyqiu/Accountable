@@ -17,6 +17,8 @@ public class User {
     private int points;
     private int experience;
     private int level;
+    private int levelMax;
+    private int experienceMax;
 
     private List<Goal> goals;
     private List<Workout> workouts;
@@ -24,7 +26,11 @@ public class User {
 
     public User()
     {
-
+        points = 1024;
+        experience = 0;
+        level = 1;
+        levelMax = 10;
+        experienceMax = 100;
     }
 
     public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
@@ -38,6 +44,8 @@ public class User {
         points = 0;
         experience = 0;
         level = 1;
+        levelMax = 10;
+        experienceMax = 100;
 
         goals = new ArrayList<>();
         workouts = new ArrayList<>();
@@ -145,6 +153,10 @@ public class User {
     {
         return level;
     }
+
+    public int getLevelMax() { return  levelMax; }
+
+    public int getExperienceMax() { return experienceMax; }
 
     // **** ARRAYS ****
 
