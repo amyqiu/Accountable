@@ -1,5 +1,13 @@
 package com.daph.accountable.model;
 
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -129,6 +137,7 @@ public class User {
     public void addNutrition(Nutrition newNutrition)
     {
         nutritions.add(newNutrition);
+
     }
 
     public void delNutrition(Nutrition deletedNutrition)
@@ -228,5 +237,51 @@ public class User {
             }
         }
         return pos;
+    }
+
+    public static void addNutrition(final String username, final Nutrition newNutrition) {
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = firebaseDatabase.getReference("users");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.i("database", "hey I got something");
+                ArrayList<User> userList = User.stringListToUserList((ArrayList<String>) dataSnapshot.getValue());
+                int pos = User.userPos(username, userList);
+                User user = userList.get(pos);
+                user.addNutrition(newNutrition);
+
+
+                myRef.setValue(userList);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
+    public static void addWorkout(final String username, final Workout newWorkout) {
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = firebaseDatabase.getReference("users");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.i("database", "hey I got something");
+                ArrayList<User> userList = User.stringListToUserList((ArrayList<String>) dataSnapshot.getValue());
+                int pos = User.userPos(username, userList);
+                User user = userList.get(pos);
+                user.addWorkout(newWorkout);
+
+
+
+                myRef.setValue(userList);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
 }
