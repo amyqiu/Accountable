@@ -33,7 +33,7 @@ public class WorkoutChallenge extends Challenge {
 
     public void failWorkout()
     {
-        recipient.addPoints(amount * -1);
+        recipient.subtractPoints(amount);
         requester.addPoints(amount * 2);
     }
 }
