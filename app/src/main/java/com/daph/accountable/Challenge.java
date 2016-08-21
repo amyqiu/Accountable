@@ -19,7 +19,7 @@ public class Challenge {
         requester = newRequester;
         recipient = newRecipient;
 
-        requester.addPoints(amount * -1);
+        requester.subtractPoints(amount);
     }
 
     public void setAmount(int newAmount)
