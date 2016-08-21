@@ -16,6 +16,8 @@ public class User {
     private List<Nutrition> nutritions;
     private List<Meditation> meditations;
 
+    private List<Investment> investmentsInMe;
+    private List<Investment> myInvestments;
     public User()
     {
         points = 0;
@@ -44,6 +46,8 @@ public class User {
         workouts = new ArrayList<>();
         nutritions = new ArrayList<>();
         meditations = new ArrayList<>();
+        investmentsInMe = new ArrayList<>();
+        myInvestments = new ArrayList<>();
 
     }
 
@@ -143,6 +147,26 @@ public class User {
 
     public void delMeditation(Meditation deletedMeditation) {
         meditations.remove(deletedMeditation);
+    }
+
+    // Investment Info
+
+    public void addMeditation(Investment newInvestment, boolean mine) {
+        if (mine) {
+            myInvestments.add(newInvestment);
+        }
+        else {
+            investmentsInMe.add(newInvestment);
+        }
+    }
+
+    public void delInvestment(Investment deletedInvestment, boolean mine) {
+        if (mine) {
+            myInvestments.remove(deletedInvestment);
+        }
+        else {
+            investmentsInMe.remove(deletedInvestment);
+        }
     }
 
     //Checks current experience and level up accordingly
