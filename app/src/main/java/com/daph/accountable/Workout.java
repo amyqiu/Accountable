@@ -15,7 +15,7 @@ public class Workout extends Accomplishment{
 
         setName(newName);
         setDescription(newDescription);
-        setCategory(Constants.Category.WORKOUT);
+        // setCategory(Constants.Category.WORKOUT);
         intensity = newIntensity;
         time = newTime;
         setValue(time*intensity);
