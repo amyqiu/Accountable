@@ -232,6 +232,14 @@ public class User {
         return userArr;
     }
 
+    public static ArrayList<String>userListToStringList (ArrayList<User> arr) {
+        ArrayList<String> stringArr = new ArrayList<>();
+        for (int i = 0; i < arr.size(); ++i) {
+            stringArr.add(arr.get(i).toString());
+        }
+        return stringArr;
+    }
+
     @Override
     public String toString()
     {

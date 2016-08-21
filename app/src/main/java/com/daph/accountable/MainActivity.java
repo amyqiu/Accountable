@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textView)).setText(String.format(this.getResources().getString(R.string.Intro), name));
         user = null;
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference("users");
+        final DatabaseReference myRef = firebaseDatabase.getReference("users");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     user = new User(name);
                     userList.add(user);
+                    myRef.setValue(User.userListToStringList(userList));
                 }
                 initializeLevel();
                 initializePoints();
