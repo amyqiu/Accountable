@@ -15,6 +15,8 @@ public class User {
     private int height;
 
     private int points;
+    private int personalMultiplier;
+
     private int experience;
     private int level;
 
@@ -36,6 +38,7 @@ public class User {
         height = newHeight;
 
         points = 0;
+        personalMultiplier = 1;
         experience = 0;
         level = 1;
 
@@ -92,8 +95,9 @@ public class User {
 
     public void addPoints(int morePoints)
     {
-        points = points + morePoints;
+        points = points +  personalMultiplier*morePoints;
     }
+    // Also include servermultiplier
 
     public void subtractPoints(int lessPoints)
     {
