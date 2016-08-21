@@ -1,5 +1,7 @@
 package com.daph.accountable.model;
 
+import android.text.TextUtils;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -7,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Amy on 2016-08-20.
@@ -16,13 +19,19 @@ public class Investment {
     protected int amount;
     protected String requester;
     protected String recipient;
-
-    Accomplishment investmentTask;
+    protected String investmentTask;
 
     public Investment(){
 
     }
 
+    public Investment(String investmentString) {
+        String[] investmentArray = investmentString.split("~");
+        amount = Integer.parseInt(investmentArray[0]);
+        requester = investmentArray[1];
+        recipient = investmentArray[2];
+        investmentTask = investmentArray[3];
+    }
     public Investment(int newAmount, String newRequester, String newRecipient)
     {
         amount = newAmount;
@@ -62,18 +71,9 @@ public class Investment {
         return recipient;
     }
 
-    public Accomplishment getInvestmentTask()
+    public String getInvestmentTask()
     {
         return investmentTask;
-    }
-
-    // investmentCompleted in main function.
-    public void investmentType(Workout challengeWorkout) {
-        investmentTask = challengeWorkout;
-    }
-
-    public void investmentType(Nutrition challengeNutrition) {
-        investmentTask = challengeNutrition;
     }
 
     public void investmentCompleted(final Workout challengeWorkout)
@@ -122,6 +122,32 @@ public class Investment {
         });
     }
 
+    public static ArrayList<Investment> stringToList (String investmentString) {
+        ArrayList<Investment> newList = new ArrayList<>();
+        if ("empty".equals(investmentString)) return newList;
+        String[] stringarr = investmentString.split(",");
+        for (int i = 0; i < stringarr.length; i++) {
+            newList.add(new Investment(stringarr[i]));
+        }
+        return newList;
+    }
+
+    public static String listToString (List<Workout> investments) {
+        ArrayList<String> newList = new ArrayList<>();
+        for (int i = 0; i < investments.size(); i++) {
+            newList.add(investments.get(i).toString());
+        }
+        if (newList.size() == 0) return "empty";
+        return TextUtils.join(",", newList);
+    }
+
+    @Override
+    public String toString() {
+        return Integer.toString(amount) + "/" +
+            requester + "/" +
+            recipient + "/" +
+            investmentTask;
+    }
     // No function for failure because investor already lost their amount, and investee gets
     // nothing for doing nothing.
 }
