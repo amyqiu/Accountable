@@ -99,7 +99,7 @@ public class AddAccomplishmentActivity extends AppCompatActivity {
         else
         {
             //Change to meditation
-            intent = new Intent(AddAccomplishmentActivity.this, AddWorkoutActivity.class);
+            intent = new Intent(AddAccomplishmentActivity.this, AddMeditationActivity.class);
         }
 
 
