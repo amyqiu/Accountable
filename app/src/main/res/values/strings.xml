@@ -10,4 +10,5 @@
     <string name="accomplishmentName">Pick your name:</string>
     <string name="description">Add a short description (optional):</string>
     <string name="next">Next</string>
+    <string name="intensity">Choose your workout intensity:</string>
 </resources>
