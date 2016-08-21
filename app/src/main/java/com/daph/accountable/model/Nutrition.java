@@ -1,5 +1,10 @@
 package com.daph.accountable.model;
 
+import android.text.TextUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Derin on 2016-08-20.
  */
@@ -41,6 +46,16 @@ public class Nutrition extends Accomplishment {
         nutritionPoints(); // This is declared later, idk if it will work.
     }
 
+    public Nutrition (String nutritionString) {
+        String[] nutritionArray = nutritionString.split("~");
+        setName(nutritionArray[0]);
+        setDescription(nutritionArray[1]);
+        setValue(Integer.parseInt(nutritionArray[2]));
+        dailyCalorieGoal = Integer.parseInt(nutritionArray[3]);
+        dailyProteinGoal = Integer.parseInt(nutritionArray[4]);
+        caloriesToday = Integer.parseInt(nutritionArray[5]);
+        proteinToday = Integer.parseInt(nutritionArray[6]);
+    }
     // Mutators of goals and current calories as well as protein
     public void setDailyCalorieGoal(int newCalorieGoal) {
         dailyCalorieGoal = newCalorieGoal;
@@ -97,6 +112,35 @@ public class Nutrition extends Accomplishment {
         }
 
         setValue(multiplier * 100); // 100 is just a placeholder value
+    }
+
+    public static ArrayList<Nutrition> stringToList (String nutritionString) {
+        ArrayList<Nutrition> newList = new ArrayList<>();
+        String[] stringarr = nutritionString.split(",");
+        for (int i = 0; i < stringarr.length; i++) {
+            newList.add(new Nutrition(stringarr[i]));
+        }
+        return newList;
+    }
+
+
+    public static String listToString (List<Nutrition> nutrition) {
+        ArrayList<String> newList = new ArrayList<>();
+        for (int i = 0; i < nutrition.size(); i++) {
+            newList.add(nutrition.get(i).toString());
+        }
+        return TextUtils.join(",", newList);
+    }
+
+    @Override
+    public String toString () {
+        return getName() + "~" +
+                getDescription() + "~" +
+                Integer.toString(getValue()) + "~" +
+                Integer.toString(dailyCalorieGoal) + "~" +
+                Integer.toString(dailyProteinGoal) + "~" +
+                Integer.toString(caloriesToday) + "~" +
+                Integer.toString(proteinToday);
     }
 
 

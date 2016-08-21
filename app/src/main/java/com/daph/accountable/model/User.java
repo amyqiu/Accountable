@@ -10,7 +10,7 @@ public class User {
 
     private String name;
     private int points;
-    private int personalMultiplier;
+    private double personalMultiplier;
     private int experience;
     private List<Workout> workouts;
     private List<Nutrition> nutritions;
@@ -27,12 +27,12 @@ public class User {
         name = user[0];
 
         points = Integer.parseInt(user[1]);
-        personalMultiplier = Integer.parseInt(user[2]);
+        personalMultiplier = Double.parseDouble(user[2]);
         experience = Integer.parseInt(user[3]);
 
-        workouts = new ArrayList<>();
-        nutritions = new ArrayList<>();
-        meditations = new ArrayList<>();
+        workouts = Workout.stringToList(user[4]);
+        nutritions = Nutrition.stringToList(user[5]);
+        meditations = Meditation.stringToList(user[6]);
     }
 
     public User(String newName, boolean newGender, int newAge, int newWeight, int newHeight)
@@ -69,7 +69,7 @@ public class User {
 
     public void addPoints(int morePoints)
     {
-        points = points +  personalMultiplier*morePoints;
+        points += personalMultiplier*morePoints;
     }
     // Also include servermultiplier
 
@@ -196,10 +196,10 @@ public class User {
     {
         return name + "/" +
             Integer.toString(points) + "/" +
-            Integer.toString(personalMultiplier) + "/" +
+            Double.toString(personalMultiplier) + "/" +
             Integer.toString(experience) + "/" +
-            workouts.toString() + "/" +
-            nutritions.toString() + "/" +
-            meditations.toString();
+            Workout.listToString(workouts) + "/" +
+            Nutrition.listToString(nutritions) + "/" +
+            Meditation.listToString(meditations);
     }
 }
